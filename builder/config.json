@@ -1,0 +1,131 @@
+{
+  "_comment": "Bardom-builder config — central path registry. All build tools referenced by builder.py/compiler.py/packager.py resolve through here. If a tool is missing locally, the fetch_* scripts download & cache it for offline use.",
+  "version": "1.0.0",
+  "generated_at": "2026-07-22T22:00:00Z",
+  "root": "Bardom-builder",
+
+  "sdk": {
+    "root": "Bardom-builder/sdk",
+    "platform_tools": {
+      "path": "Bardom-builder/sdk/platform-tools",
+      "binaries": ["adb", "aapt", "fastboot", "dmtracedump"],
+      "source_url": "https://dl.google.com/android/repository/platform-tools-latest-linux.zip",
+      "version": "latest"
+    },
+    "build_tools": {
+      "path": "Bardom-builder/sdk/build-tools/34.0.0",
+      "version": "34.0.0",
+      "binaries": ["aapt2", "d8", "zipalign", "apksigner", "aidl"],
+      "source_url": "https://dl.google.com/android/repository/build-tools_r34-linux.zip"
+    },
+    "platforms": {
+      "android_34": {
+        "path": "Bardom-builder/sdk/platforms/android-34",
+        "jar": "android.jar",
+        "source_url": "https://dl.google.com/android/repository/platform-34-ext9_r01.zip",
+        "api_level": 34
+      }
+    },
+    "cmdline_tools": {
+      "path": "Bardom-builder/sdk/cmdline-tools",
+      "binaries": ["sdkmanager", "avdmanager"],
+      "source_url": "https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip"
+    }
+  },
+
+  "jdk": {
+    "root": "Bardom-builder/jdk",
+    "version": "17.0.9",
+    "distribution": "temurin",
+    "bin": {
+      "javac": "Bardom-builder/jdk/bin/javac",
+      "java": "Bardom-builder/jdk/bin/java",
+      "jar": "Bardom-builder/jdk/bin/jar",
+      "keytool": "Bardom-builder/jdk/bin/keytool"
+    },
+    "source_url": "https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.9%2B9/OpenJDK17U-jdk_x64_linux_hotspot_17.0.9_9.tar.gz"
+  },
+
+  "gradle": {
+    "root": "Bardom-builder/gradle",
+    "version": "8.4",
+    "wrapper": {
+      "path": "Bardom-builder/gradle/wrapper",
+      "jar": "Bardom-builder/gradle/wrapper/gradle-wrapper.jar",
+      "properties": "Bardom-builder/gradle/wrapper/gradle-wrapper.properties",
+      "source_url": "https://services.gradle.org/distributions/gradle-8.4-bin.zip"
+    },
+    "plugins": {
+      "path": "Bardom-builder/gradle/plugins",
+      "android_gradle_plugin_version": "8.1.4",
+      "kotlin_gradle_plugin_version": "1.9.10"
+    },
+    "properties": {
+      "path": "Bardom-builder/gradle/gradle.properties",
+      "offline_mode": true,
+      "android.useAndroidX": "true",
+      "android.enableJetifier": "true",
+      "org.gradle.jvmargs": "-Xmx2048m -Dfile.encoding=UTF-8",
+      "org.gradle.parallel": "true",
+      "org.gradle.caching": "true"
+    }
+  },
+
+  "templates": {
+    "root": "Bardom-builder/templates",
+    "app_template": "Bardom-builder/templates/app",
+    "libs": "Bardom-builder/templates/libs"
+  },
+
+  "keystore": {
+    "root": "Bardom-builder/keystore",
+    "debug": "Bardom-builder/keystore/debug.keystore",
+    "debug_alias": "androiddebugkey",
+    "debug_password": "android",
+    "debug_dname": "CN=Android Debug,O=Android,C=US"
+  },
+
+  "workspace": {
+    "root": "Bardom-builder/workspace",
+    "max_concurrent_projects": 10,
+    "cleanup_after_days": 7
+  },
+
+  "build_pipeline": {
+    "steps": [
+      "validate_input",
+      "prepare_workspace",
+      "fetch_tools_if_missing",
+      "copy_template",
+      "inject_user_code",
+      "compile_resources_with_aapt2",
+      "compile_java_with_javac",
+      "convert_classes_to_dex_with_d8",
+      "package_apk_with_aapt2",
+      "zipalign_with_zipalign",
+      "sign_with_apksigner",
+      "verify_apk",
+      "deliver"
+    ],
+    "default_target": "debug",
+    "offline_fallback": true,
+    "continuous_monitoring": true,
+    "auto_correction": true,
+    "max_retry_attempts": 5
+  },
+
+  "github": {
+    "repo": "abuhoney/bardom",
+    "branch": "main",
+    "workflow_path": ".github/workflows/build-apk-offline.yml",
+    "patterns_dir": "patterns",
+    "main_html_path": "android-project/app/src/main/assets/webapp.html"
+  },
+
+  "bot": {
+    "token_env": "BOT_TOKEN",
+    "admin_chat_id_env": "TELEGRAM_ADMIN_CHAT_ID",
+    "monitoring_interval_seconds": 20,
+    "auto_fix_on_failure": true
+  }
+}

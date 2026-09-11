@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const fs = require('fs');
-const { execSync } = require('child_process');
+const { execSync, exec } = require('child_process');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -12,93 +12,133 @@ app.use(express.json({ limit: '100mb' }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Health
-app.get('/health', (req, res) => res.json({ status: 'ok', version: '9.0.0', universal: true }));
+app.get('/health', (req, res) => res.json({ status: 'ok', version: '10.0.0', unified: true }));
 
 // Root
 app.get('/', (req, res) => res.json({
-  name: 'Universal App Generator Backend',
-  version: '9.0.0',
-  features: ['project-generation', 'apk-building', 'templates', 'firebase-sync', 'github-push'],
-  dashboard: '/index.html',
-  api: ['/health', '/api/config', '/api/templates', '/api/build', '/api/stats']
+  name: 'App Engine Studio — Unified',
+  version: '10.0.0',
+  features: ['studio-html', 'real-apk-builder', 'firebase', 'github-push'],
+  endpoints: ['/health', '/api/build', '/api/status/:jobId', '/download/:file', '/index.html']
 }));
 
-// Config
-app.get('/api/config', (req, res) => res.json({
-  backendUrl: 'https://all-arab-services.onrender.com',
-  firebase: {
-    apiKey: process.env.FIREBASE_API_KEY || 'AIzaSyBm-ZwOv8oPd_0rms_2oesGz3fDmt5ogvA',
-    projectId: process.env.FIREBASE_PROJECT_ID || 'all-arab-services-750ad',
-    databaseUrl: process.env.FIREBASE_DATABASE_URL || 'https://all-arab-services-750ad-default-rtdb.europe-west1.firebasedatabase.app'
-  },
-  version: '9.0.0'
-}));
+// Build APK — REAL compilation using builder.py
+app.post('/api/build', (req, res) => {
+  const { appName, packageName, htmlContent, versionName, versionCode } = req.body;
 
-// Templates list
-app.get('/api/templates', (req, res) => {
-  const tf = path.join(__dirname, 'data', 'templates.json');
-  if (fs.existsSync(tf)) {
-    res.sendFile(tf);
-  } else {
-    res.json({ templates: [] });
+  if (!appName || !packageName) {
+    return res.status(400).json({ error: 'Missing appName or packageName' });
+  }
+
+  const jobId = `job_${Date.now()}`;
+  const workDir = `/tmp/${jobId}`;
+  const htmlPath = path.join(workDir, 'webapp.html');
+
+  try {
+    // Create work directory
+    fs.mkdirSync(workDir, { recursive: true });
+
+    // Write HTML content (or use studio.html if no custom HTML)
+    const html = htmlContent || '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>' + appName + '</title></head><body><h1>' + appName + '</h1></body></html>';
+    fs.writeFileSync(htmlPath, html);
+
+    // Build the APK using builder.py
+    const builderPath = path.join(__dirname, '..', 'builder');
+    const cmd = `cd ${builderPath} && python3 builder.py --project-name "${appName}" --html "${htmlPath}" --package "${packageName}" --version-name "${versionName || '1.0.0'}" --version-code "${versionCode || '1'}" --target debug 2>&1`;
+
+    console.log(`[Build] Starting ${jobId} for ${appName} (${packageName})`);
+
+    // Run build asynchronously
+    exec(cmd, { timeout: 300000, maxBuffer: 1024 * 1024 * 10 }, (err, stdout, stderr) => {
+      const logFile = path.join(workDir, 'build.log');
+      fs.writeFileSync(logFile, stdout + '\n' + (stderr || ''));
+
+      if (err) {
+        console.error(`[Build] ${jobId} failed:`, err.message);
+        // Try to find the APK anyway
+      }
+
+      // Find the generated APK
+      const apkPattern = /\.apk$/;
+      let apkPath = null;
+
+      // Check builder workspace
+      const workspaceDir = path.join(builderPath, 'workspace');
+      if (fs.existsSync(workspaceDir)) {
+        const findCmd = `find ${workspaceDir} -name "*.apk" -type f 2>/dev/null | head -1`;
+        try {
+          apkPath = execSync(findCmd).toString().trim();
+        } catch(e) {}
+      }
+
+      // Check /tmp
+      if (!apkPath || !fs.existsSync(apkPath)) {
+        try {
+          apkPath = execSync(`find /tmp -name "${appName.replace(/[^a-zA-Z0-9]/g, '_')}*.apk" -type f 2>/dev/null | head -1`).toString().trim();
+        } catch(e) {}
+      }
+
+      if (apkPath && fs.existsSync(apkPath)) {
+        // Copy APK to a downloadable location
+        const downloadName = `${appName.replace(/[^a-zA-Z0-9]/g, '_')}.apk`;
+        const downloadPath = path.join('/tmp', downloadName);
+        fs.copyFileSync(apkPath, downloadPath);
+
+        const size = fs.statSync(downloadPath).size;
+        console.log(`[Build] ${jobId} succeeded: ${downloadPath} (${size} bytes)`);
+      } else {
+        console.error(`[Build] ${jobId} completed but no APK found`);
+      }
+    });
+
+    res.json({
+      jobId,
+      status: 'building',
+      message: 'APK build started. Check status with GET /api/status/' + jobId,
+      checkStatus: '/api/status/' + jobId
+    });
+
+  } catch (e) {
+    console.error('[Build] Error:', e);
+    res.status(500).json({ error: e.message, jobId });
   }
 });
 
-// Build APK — real build using Python engine
-app.post('/api/build', async (req, res) => {
-  const { name, package: pkg, features, version, minSdk, targetSdk } = req.body;
-  if (!name || !pkg) return res.status(400).json({ error: 'Missing name or package' });
+// Check build status
+app.get('/api/status/:jobId', (req, res) => {
+  const jobId = req.params.jobId;
+  const logPath = path.join('/tmp', jobId, 'build.log');
 
-  const spec = {
-    name, package: pkg,
-    features: features || ['Hello World'],
-    version: version || '1.0.0',
-    min_sdk: minSdk || 21,
-    target_sdk: targetSdk || 34
-  };
+  if (fs.existsSync(logPath)) {
+    const log = fs.readFileSync(logPath, 'utf-8');
+    const success = log.includes('APK ready') || log.includes('BUILD SUCCESSFUL');
+    const failed = log.includes('failed') || log.includes('FAILURE');
+    const apkMatch = log.match(/([\w\/\.-]+\.apk)/);
 
-  try {
-    // Try to run the Python engine if available
-    const enginePath = path.join(__dirname, '..', 'engine');
-    if (fs.existsSync(path.join(enginePath, 'apk_builder.py'))) {
-      // Write spec to temp file
-      const specFile = path.join(require('os').tmpdir(), `spec_${Date.now()}.json`);
-      fs.writeFileSync(specFile, JSON.stringify(spec));
-      // Run the engine
-      const cmd = `cd ${enginePath} && python3 -c "
-import json, sys
-sys.path.insert(0, '.')
-from apk_builder import ApkBuilder
-from project_generator import ProjectGenerator
-spec = json.load(open('${specFile}'))
-gen = ProjectGenerator(spec)
-gen.generate('/tmp/build_${Date.now()}')
-builder = ApkBuilder('/tmp/build_${Date.now()}')
-builder.build()
-print(builder.output_apk)
-" 2>&1`;
-      const output = execSync(cmd, { timeout: 60000 }).toString();
-      const apkPath = output.trim().split('\n').pop();
-      if (fs.existsSync(apkPath)) {
-        return res.json({ status: 'ok', apkPath, downloadUrl: '/api/download/' + path.basename(apkPath) });
-      }
-    }
-    // Fallback: return the spec (frontend will simulate)
-    res.json({ status: 'queued', spec, message: 'Build queued — APK will be available shortly' });
-  } catch (e) {
-    res.json({ status: 'error', error: e.message, spec });
+    res.json({
+      jobId,
+      status: success ? 'completed' : (failed ? 'failed' : 'building'),
+      log: log.substring(0, 2000),
+      apkUrl: success && apkMatch ? `/download/${path.basename(apkMatch[1])}` : null
+    });
+  } else {
+    res.json({ jobId, status: 'pending' });
   }
 });
 
 // Download APK
-app.get('/api/download/:filename', (req, res) => {
-  const f = path.join('/tmp', req.params.filename);
-  if (fs.existsSync(f)) res.sendFile(f);
-  else res.status(404).json({ error: 'File not found' });
+app.get('/download/:filename', (req, res) => {
+  const filePath = path.join('/tmp', req.params.filename);
+  if (fs.existsSync(filePath)) {
+    res.setHeader('Content-Type', 'application/vnd.android.package-archive');
+    res.setHeader('Content-Disposition', `attachment; filename="${req.params.filename}"`);
+    res.sendFile(filePath);
+  } else {
+    res.status(404).json({ error: 'File not found' });
+  }
 });
 
-// Stats
-app.post('/api/stats', (req, res) => { console.log('[Stats]', JSON.stringify(req.body).substring(0,200)); res.json({ status: 'ok' }); });
-app.get('/api/stats', (req, res) => res.json({ installs: 0, builds: 0 }));
-
-app.listen(PORT, () => console.log(`Universal App Generator v9.0.0 on port ${PORT}`));
+app.listen(PORT, () => {
+  console.log(`App Engine Studio v10.0.0 (Unified) on port ${PORT}`);
+  console.log(`Builder: ${path.join(__dirname, '..', 'builder')}`);
+});

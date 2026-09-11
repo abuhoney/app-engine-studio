@@ -1,53 +1,61 @@
-# App Engine Studio
+# App Engine Studio v10.0 — Unified
 
-Full Android app generator with v6.2 HTML, Ads Studio, Identity Shimming, Templates Gallery, JSON Tools, and HTML I/O.
-
-## Backend
-
-The backend runs on Render at: https://all-arab-services.onrender.com
-
-### Endpoints
-
-- `GET /health` — Health check
-- `GET /api/config` — App config (Firebase, features)
-- `POST /api/build-apk` — Queue APK build
-- `GET /api/build-status/:jobId` — Check build status
-- `GET /download/app-debug.apk` — Download built APK
-- `GET /api/ads` — Ad config
-- `GET /api/identity` — Identity config
-- `POST /api/stats` — Record stats
-- `GET /api/stats` — Get stats
-- `POST /api/admin/commands` — Send admin command
-- `GET /api/admin/commands/:deviceId` — Get pending commands
-- `GET /studio.html` — The v6.2 HTML generator
-
-## Frontend (HTML Generator)
-
-The v6.2 HTML generator is at `backend/public/studio.html` (1.5 MB).
-
-## APK
-
-- `app-engine-studio.apk` — Android app with embedded v6.2 generator
-- `demo-app-debug.apk` — Demo app (الدليل الشامل للخدمات)
+Real APK builder + studio.html dashboard in one system.
 
 ## Architecture
 
 ```
-GitHub Repo (abuhoney/app-engine-studio)
-├── backend/
-│   ├── server.js          (Express.js backend)
-│   ├── package.json
-│   └── public/
-│       └── studio.html    (v6.2 HTML generator)
-├── apk/
-│   ├── app-engine-studio.apk
-│   └── demo-app-debug.apk
-├── .env.example
-└── README.md
+studio.html (dashboard) → POST /api/build → builder.py → REAL signed APK
 ```
 
-Render auto-deploys from `main` branch → `backend/` directory.
+## Backend
 
-## License
+```
+https://all-arab-services.onrender.com
+```
 
-MIT
+### Endpoints
+
+- `GET /health` — Health check
+- `GET /index.html` — studio.html dashboard (1.5 MB)
+- `POST /api/build` — Build REAL APK from HTML
+  - Body: `{ appName, packageName, htmlContent, versionName, versionCode }`
+  - Returns: `{ jobId, status: 'building' }`
+- `GET /api/status/:jobId` — Check build status
+- `GET /download/:filename` — Download built APK
+
+## Builder
+
+Uses `builder/` directory containing:
+- `builder.py` — Main orchestrator
+- `compiler.py` — Java → DEX compiler (aapt2/javac/d8)
+- `packager.py` — APK packager (zipalign/apksigner)
+- `config.json` — Tool paths + SDK config
+- `templates/` — Android project template
+- `scripts/` — Tool fetchers (SDK/JDK/Gradle)
+- `keystore/debug.keystore` — Debug signing key
+
+## Build Pipeline (REAL, not simulated)
+
+1. User fills form in studio.html dashboard
+2. Dashboard POSTs to `/api/build`
+3. Server runs `builder.py` which:
+   a. Creates workspace
+   b. Copies Android project template
+   c. Injects user's HTML as `webapp.html`
+   d. Runs `aapt2 compile` + `aapt2 link`
+   e. Runs `javac` (JDK 17)
+   f. Runs `d8` (class → DEX)
+   g. Merges DEX into APK
+   h. Runs `zipalign`
+   i. Runs `apksigner sign` (v1+v2)
+4. Server responds with download URL
+5. User downloads REAL signed APK
+
+## APK
+
+Dashboard APK: `apk/app-engine-studio.apk` (loads dashboard from backend)
+
+## GitHub
+
+https://github.com/abuhoney/app-engine-studio

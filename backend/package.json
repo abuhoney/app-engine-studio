@@ -1,8 +1,15 @@
 {
-  "name": "universal-app-generator",
-  "version": "9.0.0",
+  "name": "app-engine-studio-unified",
+  "version": "10.0.0",
   "main": "server.js",
-  "scripts": { "start": "node server.js" },
-  "dependencies": { "express": "^4.18.2", "cors": "^2.8.5" },
-  "engines": { "node": ">=18.0.0" }
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
 }
