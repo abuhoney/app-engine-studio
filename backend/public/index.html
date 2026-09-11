@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>App Engine Studio v7.3</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">🌙</button>
+<div class="container">
+<h1>Sketchware Pro App Generator <span class="ver">v6.2 — Style-Driven Engine + Ads Studio + Identity Shimming + HTML I/O + Templates Gallery + JSON Tools + Server-Built APK ✓</span></h1>
+<div class="sub">v5.0 NEW: Style-Driven JSON System (app_theme + layout_components + screen_layouts) · Sketchware Pro Compatible: extends Activity · findViewById · Minimal styles.xml (Direct Hex Colors) · NO themes.xml · NO ThemeOverlay · NO Widget.AppCompat.Button.Colored · Java 7 Strict</div>
+<div class="sub success">✓ styles.xml uses direct hex colors (not @color/) ✓ NO themes.xml ✓ NO ThemeOverlay.AppCompat ✓ NO windowActionBar/windowNoTitle ✓ extends Activity ✓ findViewById ✓ initialize/initializeLogic</div>
+
+<div class="warning-banner">
+  <b>⚠ v3.2 Fix:</b> <code>styles.xml</code> now uses <b>direct hex colors</b> in <code>&lt;item name="colorPrimary"&gt;#RRGGBB&lt;/item&gt;</code> (NOT <code>@color/colorPrimary</code>) because Sketchware Pro does NOT generate <code>attr/colorPrimary</code> from <code>@color/</code> references. <code>themes.xml</code> file is REMOVED entirely (caused <code>ThemeOverlay.AppCompat</code> linking errors). <code>AppTheme.NoActionBar</code>, <code>PrimaryButton</code>, <code>TitleText</code>, <code>BodyText</code> styles removed (caused <code>windowActionBar</code>, <code>Widget.AppCompat.Button.Colored</code> errors).
+</div>
+
+
+<!-- ====== v5.0 APK DOWNLOAD BUTTON (Built on Server) ====== -->
+<!-- ====== v7.0 APP-ENGINE-STUDIO APK BUTTON ====== -->
+<div style="background: linear-gradient(135deg, #8250df, #bc8cff); border-radius: 12px; padding: 20px; margin: 16px 0; text-align: center; box-shadow: 0 8px 24px rgba(130,80,223,0.3);">
+  <div style="display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap;">
+    <div style="font-size: 56px; line-height: 1;">⚡</div>
+    <div style="text-align: right;">
+      <div style="color: #fff; font-size: 22px; font-weight: 700; margin-bottom: 4px;">App Engine Studio — التطبيق الكامل</div>
+      <div style="color: rgba(255,255,255,0.9); font-size: 13px;">v7.0 · 57 نشاط · يحمل v6.2 بالكامل · تحكم المشرف عن بُعد · ينفذ ما يولّده</div>
+    </div>
+  </div>
+  <a href="https://chat.z.ai/c/app-engine-studio.apk" download="app-engine-studio.apk"
+     style="display: inline-flex; align-items: center; gap: 10px; background: #fff; color: #8250df;
+            padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 16px;
+            margin-top: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);"
+     onmouseover="this.style.transform='translateY(-2px)'"
+     onmouseout="this.style.transform='translateY(0)'">
+    <span style="font-size: 24px;">⬇</span>
+    <span>Download App Engine Studio (57 Activities, 15MB, v7.0)</span>
+  </a>
+  <div style="color: rgba(255,255,255,0.85); font-size: 11px; margin-top: 12px;">
+    ✅ يحمل v6.2 HTML بالكامل · ✅ JS Bridge · ✅ RemoteAdminManager · ✅ ينفذ ما يولّده · ✅ 57 نشاط
+  </div>
+</div>
+<!-- ====== END APP-ENGINE-STUDIO BUTTON ====== -->
+
+<div style="background: linear-gradient(135deg, #FF6F00, #FF8F00); border-radius: 12px; padding: 20px; margin: 16px 0; text-align: center; box-shadow: 0 8px 24px rgba(255,111,0,0.3);">
+  <div style="display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap;">
+    <div style="font-size: 56px; line-height: 1;">🌐</div>
+    <div style="text-align: right;">
+      <div style="color: #fff; font-size: 22px; font-weight: 700; margin-bottom: 4px;">APK جاهز للتثبيت — مبني على الخادم</div>
+      <div style="color: rgba(255,255,255,0.9); font-size: 13px;">الإصدار 6.0.0 · 32 نشاط · AdMob + Identity Shimming + 6 أنواع إعلانات · Firebase all-arab-services-750ad ✓</div>
+    </div>
+  </div>
+  <a href="https://chat.z.ai/c/demo-app-debug.apk" download="demo-app-debug.apk"
+     style="display: inline-flex; align-items: center; gap: 10px; background: #fff; color: #FF6F00;
+            padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 16px;
+            margin-top: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: transform 0.15s;"
+     onmouseover="this.style.transform='translateY(-2px)'"
+     onmouseout="this.style.transform='translateY(0)'">
+    <span style="font-size: 24px;">⬇</span>
+    <span>Download Full APK (32 Activities, 14MB, v6.0 + Ads + Identity, Built on Server)</span>
+  </a>
+  <div style="color: rgba(255,255,255,0.85); font-size: 11px; margin-top: 12px;">
+    ✅ APK موقّع · ✅ Firebase مهيّأ بـ firebase_database_url · ✅ SplashActivity محصّن ضد التعطل · ✅ بدون أسرار في الكود · ✅ يتكيف تلقائياً
+  </div>
+</div>
+<!-- ====== END APK DOWNLOAD BUTTON ====== -->
+
+<div class="banner">
+  <b>Universal & Flexible:</b> Accepts ANY JSON structure with ANY number of files, ANY file types, ANY paths. Resources from JSON are merged with defaults and <b>deduplicated</b> to prevent build failures.
+  <div class="grid2">
+    <div><b>Output:</b> Production-ready code, paste directly into Sketchware Pro</div>
+    <div><b>Compatibility:</b> Java 7 (no lambdas, no diamond operators, no try-with-resources)</div>
+    <div><b>Export:</b> Single file · Multi-file ZIP · JSON project save</div>
+    <div><b>Validation:</b> Lambda detection · XML well-formedness · Duplicate resources · Missing array refs · Launcher = main.xml</div>
+  </div>
+</div>
+
+<div class="tab-bar" id="tabBar">
+  <div class="tab active" onclick="switchTab('config')">⚙ Project</div>
+  <div class="tab" onclick="switchTab('activities')">📱 Activities & Fragments</div>
+  <div class="tab" onclick="switchTab('resources')">🎨 Resources</div>
+  <div class="tab" onclick="switchTab('perms')">🔒 Permissions & Deps</div>
+  <div class="tab" onclick="switchTab('templates')">📋 Templates</div>
+  <div class="tab" onclick="switchTab('json')">🔁 JSON I/O</div>
+  <div class="tab" onclick="switchTab('output')">📦 Output & Export</div>
+<div class="tab" onclick="switchTab('engine')">⚡ Engine Studio</div>
+  <div class="tab" onclick="switchTab('kotlin')">🟣 Kotlin Engine</div>
+  <div class="tab" onclick="switchTab('rules')">🔥 Firebase Rules</div>
+  <div class="tab" onclick="switchTab('admin')">👑 Admin Panel</div>
+  <div class="tab" onclick="switchTab('renderer')">📄 Unified Renderer</div>
+  <div class="tab" onclick="switchTab('theme')" style="background:#FF6F00;color:#fff;border-color:#FF6F00">🎨 Theme Studio (NEW)</div>
+  <div class="tab" onclick="switchTab('ads')" style="background:#15803d;color:#fff;border-color:#15803d">📢 Ads Studio (NEW)</div>
+  <div class="tab" onclick="switchTab('identity')" style="background:#58a6ff;color:#fff;border-color:#58a6ff">🔐 Identity Studio (NEW)</div>
+  <div class="tab" onclick="switchTab('html-io')" style="background:#8250df;color:#fff;border-color:#8250df">🔄 HTML I/O (NEW)</div>
+  <div class="tab" onclick="switchTab('templates-gallery')" style="background:#1a7f37;color:#fff;border-color:#1a7f37">📚 Templates Gallery (NEW)</div>
+  <div class="tab" onclick="switchTab('json-tools')" style="background:#3fb950;color:#fff;border-color:#3fb950">🔧 JSON Tools (NEW)</div>
+</div>
+
+<!-- ===================== TAB: CONFIG ===================== -->
+<div class="tab-panel active" id="tab-config">
+  <div class="grid">
+    <div class="card">
+      <div class="card-title">Project Configuration</div>
+      <div class="row"><label>App Name</label><input type="text" id="appName" value="MyApp" style="flex:1"></div>
+      <div class="row"><label>Package Name</label><input type="text" id="packageName" value="com.example.myapp" style="flex:1"></div>
+      <div class="row"><label>Version Name</label><input type="text" id="versionName" value="1.0.0" style="flex:1"></div>
+      <div class="row"><label>Version Code</label><input type="number" id="versionCode" value="1" style="flex:1"></div>
+      <div class="row"><label>Min SDK</label>
+        <select id="minSdk" style="flex:1">
+          <option value="16">16 (Android 4.1 Jelly Bean)</option>
+          <option value="17">17 (Android 4.2)</option>
+          <option value="19">19 (Android 4.4 KitKat)</option>
+          <option value="21" selected>21 (Android 5.0 Lollipop)</option>
+          <option value="23">23 (Android 6.0 Marshmallow)</option>
+          <option value="24">24 (Android 7.0 Nougat)</option>
+          <option value="26">26 (Android 8.0 Oreo)</option>
+          <option value="28">28 (Android 9 Pie)</option>
+          <option value="29">29 (Android 10)</option>
+          <option value="30">30 (Android 11)</option>
+          <option value="33">33 (Android 13)</option>
+          <option value="34">34 (Android 14)</option>
+        </select>
+      </div>
+      <div class="row"><label>Target SDK</label>
+        <select id="targetSdk" style="flex:1">
+          <option value="29">29 (Android 10)</option>
+          <option value="30">30 (Android 11)</option>
+          <option value="33" selected>33 (Android 13)</option>
+          <option value="34">34 (Android 14)</option>
+        </select>
+      </div>
+      <div class="row"><label>Theme</label>
+        <select id="appTheme" style="flex:1">
+          <option value="AppCompat.Light.DarkActionBar" selected>AppCompat Light (Dark ActionBar)</option>
+          <option value="AppCompat.Light">AppCompat Light</option>
+          <option value="AppCompat.Light.NoActionBar">AppCompat Light NoActionBar</option>
+          <option value="AppCompat.DayNight">AppCompat DayNight</option>
+          <option value="AppCompat.NoActionBar">AppCompat NoActionBar (Toolbar)</option>
+          <option value="MaterialComponents.Light">Material Components Light</option>
+          <option value="MaterialComponents.Light.NoActionBar">Material Components Light NoActionBar</option>
+          <option value="MaterialComponents.DayNight">Material Components DayNight</option>
+        </select>
+      </div>
+      <div class="row"><label>Java/Kotlin</label>
+        <select id="language" style="flex:1">
+          <option value="java" selected>Java (Java 7 — Sketchware default)</option>
+          <option value="kotlin">Kotlin (Sketchware Pro)</option>
+        </select>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">App Metadata</div>
+      <div class="row"><label>Main Color</label><input type="text" id="primaryColor" value="#6200EE" style="flex:1"></div>
+      <div class="row"><label>Accent Color</label><input type="text" id="accentColor" value="#03DAC6" style="flex:1"></div>
+      <div class="row"><label>Background</label><input type="text" id="bgColor" value="#FFFFFF" style="flex:1"></div>
+      <div class="row"><label>Text Color</label><input type="text" id="textColor" value="#000000" style="flex:1"></div>
+      <div class="row"><label>App Orientation</label>
+        <select id="orientation" style="flex:1">
+          <option value="unspecified" selected>Auto (unspecified)</option>
+          <option value="portrait">Portrait</option>
+          <option value="landscape">Landscape</option>
+          <option value="sensor">Sensor</option>
+        </select>
+      </div>
+      <div class="row"><label>Allow Backup</label><input type="checkbox" id="allowBackup" checked></div>
+      <div class="row"><label>Hardware Accel.</label><input type="checkbox" id="hardwareAccel" checked></div>
+      <div class="row"><label>RTL Support</label><input type="checkbox" id="rtlSupport" checked></div>
+      <div class="help-text">These settings apply globally to the manifest and theme resources. The launcher activity's layout file will always be <code>main.xml</code> regardless of what you name the activity.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== TAB: ACTIVITIES ===================== -->
+<div class="tab-panel" id="tab-activities">
+  <div class="card full">
+    <div class="card-title">Activities Manager <span class="cnt" id="activityCount">0 activities</span>
+      <div class="tools"><button onclick="addActivity()" class="primary small">+ Add Activity</button></div>
+    </div>
+    <div class="warning-banner" style="margin-bottom:10px">
+      <b>Sketchware Pro rule:</b> The launcher activity's layout file is ALWAYS named <code>main.xml</code> and referenced as <code>R.layout.main</code> in Java. Other activities can use any name (e.g. <code>activity_services</code> → <code>R.layout.activity_services</code>).
+    </div>
+    <div id="activitiesList"></div>
+  </div>
+  <div class="card full">
+    <div class="card-title">Fragments Manager <span class="cnt" id="fragmentCount">0 fragments</span>
+      <div class="tools"><button onclick="addFragment()" class="primary small">+ Add Fragment</button></div>
+    </div>
+    <div class="help-text">Fragments generate a <code>.java</code> file extending <code>Fragment</code> and a layout <code>fragment_xxx.xml</code> in <code>res/layout/</code>. onCreateView uses <code>inflater.inflate(R.layout.fragment_xxx, container, false)</code>.</div>
+    <div id="fragmentsList" style="margin-top:10px"></div>
+  </div>
+</div>
+
+<!-- ===================== TAB: RESOURCES ===================== -->
+<div class="tab-panel" id="tab-resources">
+  <div class="warning-banner">
+    <b>⚠ Resource Deduplication is automatic.</b> Default resources (colorPrimary, colorAccent, app_name, activity_horizontal_margin, etc.) are always present. Custom resources you add are merged — duplicates are skipped. Spinner <code>entries</code> must reference a defined array in <code>arrays.xml</code>.
+  </div>
+  <div class="grid">
+    <div class="card">
+      <div class="card-title">Colors <span class="cnt" id="colorCount">0</span></div>
+      <div class="scroll-list" id="colorsList"></div>
+      <div class="row" style="margin-top:8px">
+        <input type="text" id="colorName" placeholder="color_name" style="flex:1">
+        <input type="text" id="colorValue" placeholder="#RRGGBB" style="flex:1">
+        <button onclick="addColor()">Add</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Strings <span class="cnt" id="stringCount">0</span></div>
+      <div class="scroll-list" id="stringsList"></div>
+      <div class="row" style="margin-top:8px">
+        <input type="text" id="stringName" placeholder="string_name" style="flex:1">
+        <input type="text" id="stringValue" placeholder="String value" style="flex:2">
+        <button onclick="addString()">Add</button>
+      </div>
+    </div>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <div class="card-title">Dimensions <span class="cnt" id="dimenCount">0</span></div>
+      <div class="scroll-list" id="dimensList"></div>
+      <div class="row" style="margin-top:8px">
+        <input type="text" id="dimenName" placeholder="dimen_name" style="flex:1">
+        <input type="text" id="dimenValue" placeholder="16dp" style="flex:1">
+        <button onclick="addDimen()">Add</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">String Arrays <span class="cnt" id="arrayCount">0</span> <span style="font-size:10px;color:var(--orange)">REQUIRED for Spinners</span></div>
+      <div class="scroll-list" id="arraysList"></div>
+      <div class="row" style="margin-top:8px">
+        <input type="text" id="arrayName" placeholder="array_name" style="flex:1">
+        <button onclick="addArray()">Add Empty</button>
+      </div>
+      <div class="help-text">Click an array to edit its items (one per line). Spinner views must reference one of these arrays via <code>android:entries="@array/name"</code>.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">Custom Drawables & Animations</div>
+    <div class="row">
+      <label>Add Drawable</label>
+      <input type="text" id="drawableName" placeholder="ic_custom" style="flex:1">
+      <select id="drawableType" style="flex:1">
+        <option value="vector">Vector XML</option>
+        <option value="shape">Shape XML (rectangle/oval/line)</option>
+        <option value="selector">Selector XML (state list)</option>
+        <option value="layer">Layer-list XML</option>
+        <option value="gradient">Gradient XML</option>
+      </select>
+      <button onclick="addDrawable()">Add</button>
+    </div>
+    <div class="row">
+      <label>Add Anim</label>
+      <input type="text" id="animName" placeholder="fade_in / slide_up" style="flex:1">
+      <select id="animType" style="flex:1">
+        <option value="fade_in">Fade In</option>
+        <option value="fade_out">Fade Out</option>
+        <option value="slide_in_left">Slide In Left</option>
+        <option value="slide_in_right">Slide In Right</option>
+        <option value="slide_out_left">Slide Out Left</option>
+        <option value="slide_out_right">Slide Out Right</option>
+        <option value="scale_in">Scale In</option>
+        <option value="rotate">Rotate</option>
+      </select>
+      <button onclick="addAnim()">Add</button>
+    </div>
+    <div class="scroll-list" id="drawablesList" style="margin-top:8px"></div>
+    <div class="help-text">Drawables with custom <code>content</code> field (provided via JSON) are emitted verbatim — no template applied.</div>
+  </div>
+  <div class="card">
+    <div class="card-title">Menus</div>
+    <div class="row">
+      <input type="text" id="menuName" placeholder="main_menu" style="flex:1">
+      <button onclick="addMenu()">Add Menu</button>
+    </div>
+    <div class="scroll-list" id="menusList" style="margin-top:8px"></div>
+    <div class="help-text">Menus generate <code>res/menu/&lt;name&gt;.xml</code>. The default menu name <code>main_menu</code> is inflated in <code>onCreateOptionsMenu</code> via <code>R.menu.main_menu</code>.</div>
+  </div>
+</div>
+
+<!-- ===================== TAB: PERMISSIONS & DEPS ===================== -->
+<div class="tab-panel" id="tab-perms">
+  <div class="grid">
+    <div class="card">
+      <div class="card-title">Permissions <span class="cnt" id="permCount">0 selected</span></div>
+      <div class="row"><input type="text" id="permSearch" placeholder="Search permissions..." style="flex:1" oninput="renderPermissions()"></div>
+      <div class="scroll-list" id="permsList" style="max-height:300px"></div>
+      <div class="row" style="margin-top:8px">
+        <input type="text" id="customPerm" placeholder="android.permission.CUSTOM" style="flex:1">
+        <button onclick="addCustomPerm()">Add Custom</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Dependencies <span class="cnt" id="depCount">0 selected</span></div>
+      <div class="scroll-list" id="depsList" style="max-height:300px"></div>
+      <div class="row" style="margin-top:8px">
+        <input type="text" id="customDep" placeholder="group:artifact:version" style="flex:1">
+        <button onclick="addCustomDep()">Add Custom</button>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">Features & Config</div>
+    <div class="row"><label>Features</label></div>
+    <div class="tag-grid" id="featuresTags"></div>
+    <div class="row" style="margin-top:8px"><label>Configs</label></div>
+    <div class="tag-grid" id="configsTags"></div>
+  </div>
+</div>
+
+<!-- ===================== TAB: TEMPLATES ===================== -->
+<div class="tab-panel" id="tab-templates">
+  <div class="card">
+    <div class="card-title">Quick Start Templates</div>
+    <div class="help-text">Clicking a template will <b>replace</b> the current project config, activities, layouts, and resources with a complete pre-built structure. Save your current work first via JSON Export.</div>
+    <div class="templates-grid" style="margin-top:10px">
+      <div class="tpl-card" onclick="applyTemplate('empty')"><span class="tpl-ico">📄</span><div class="tpl-name">Empty App</div><div class="tpl-desc">Single MainActivity + main.xml</div></div>
+      <div class="tpl-card" onclick="applyTemplate('webview')"><span class="tpl-ico">🌐</span><div class="tpl-name">WebView Browser</div><div class="tpl-desc">Full-screen WebView with JS, zoom, download</div></div>
+      <div class="tpl-card" onclick="applyTemplate('login')"><span class="tpl-ico">🔐</span><div class="tpl-name">Login/Signup</div><div class="tpl-desc">Login form + signup + SharedPreferences</div></div>
+      <div class="tpl-card" onclick="applyTemplate('list')"><span class="tpl-ico">📋</span><div class="tpl-name">RecyclerView List</div><div class="tpl-desc">ListView with custom adapter + detail</div></div>
+      <div class="tpl-card" onclick="applyTemplate('notes')"><span class="tpl-ico">📝</span><div class="tpl-name">Notes App</div><div class="tpl-desc">SQLite notes with add/edit/delete</div></div>
+      <div class="tpl-card" onclick="applyTemplate('calculator')"><span class="tpl-ico">🧮</span><div class="tpl-name">Calculator</div><div class="tpl-desc">Grid buttons + display</div></div>
+      <div class="tpl-card" onclick="applyTemplate('quiz')"><span class="tpl-ico">❓</span><div class="tpl-name">Quiz App</div><div class="tpl-desc">Multi-question quiz with score</div></div>
+      <div class="tpl-card" onclick="applyTemplate('todo')"><span class="tpl-ico">✅</span><div class="tpl-name">To-Do List</div><div class="tpl-desc">Task list with checkbox + delete</div></div>
+      <div class="tpl-card" onclick="applyTemplate('music')"><span class="tpl-ico">🎵</span><div class="tpl-name">Music Player</div><div class="tpl-desc">MediaPlayer with controls</div></div>
+      <div class="tpl-card" onclick="applyTemplate('camera')"><span class="tpl-ico">📷</span><div class="tpl-name">Camera App</div><div class="tpl-desc">Capture photo via intent</div></div>
+      <div class="tpl-card" onclick="applyTemplate('settings')"><span class="tpl-ico">⚙️</span><div class="tpl-name">Settings</div><div class="tpl-desc">SharedPreferences settings screen</div></div>
+      <div class="tpl-card" onclick="applyTemplate('dashboard')"><span class="tpl-ico">📊</span><div class="tpl-name">Dashboard</div><div class="tpl-desc">Grid dashboard with cards</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== TAB: JSON I/O ===================== -->
+<div class="tab-panel" id="tab-json">
+  <div class="card">
+    <div class="card-title">JSON Project Import / Export</div>
+    <div class="help-text">Import a previously-saved project JSON, or export the current state. The schema is flexible — any extra fields are preserved and any structure is accepted. Partial JSON is deep-merged with the default template. <b>Resources are deduplicated on import</b> so duplicates in your JSON are skipped silently.</div>
+    <div class="json-area">
+      <textarea id="jsonInput" placeholder='Paste project JSON here. Example:&#10;{&#10;  "project": {"name":"MyApp","package":"com.example.myapp","version":"1.0.0","minSdk":21,"targetSdk":33},&#10;  "activities": [...],&#10;  "fragments": [...],&#10;  "resources": {"colors":[...],"strings":[...],"dimens":[...],"arrays":[...],"drawables":[...],"anims":[...],"menus":[...]},&#10;  "permissions": ["INTERNET"],&#10;  "dependencies": ["androidx.appcompat:appcompat:1.6.1"],&#10;  "files": {"path/to/file.ext": "content..."}&#10;}'></textarea>
+    </div>
+    <div class="btn-bar">
+      <button onclick="importJSON()" class="primary">Import JSON</button>
+      <button onclick="exportJSON()">Export Current as JSON</button>
+      <button onclick="loadExampleJSON()">Load Example</button>
+      <button onclick="document.getElementById('jsonInput').value=''">Clear</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== TAB: OUTPUT ===================== -->
+<div class="tab-panel" id="tab-output">
+  <div class="btn-bar">
+    <button onclick="generateAll()" class="primary" style="padding:10px 24px;font-size:14px;font-weight:600">⚡ Generate All Files</button>
+    <button onclick="validateAll()">🔍 Validate</button>
+    <div class="spacer"></div>
+    <button onclick="copyCurrent()">📋 Copy Current</button>
+    <button onclick="downloadCurrent()">⬇ Download Current</button>
+    <button onclick="downloadZip()">📦 Download All as ZIP</button>
+    <button onclick="downloadBuildZip()" class="primary" style="background:#FF6F00;border-color:#FF6F00">📱 Build APK via Termux (Bypass Sketchware)</button>
+    <a href="https://chat.z.ai/c/demo-app-debug.apk" download="demo-app-debug.apk" style="background:#3fb950;border:1px solid #2ea043;color:#fff;border-radius:6px;padding:6px 14px;cursor:pointer;font-size:12px;font-family:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:4px">🌐 ⬇ Download Full APK (32 Activities, 14MB, v6.0 + Ads + Identity, Built on Server)</a>
+    <button onclick="downloadSelf()" class="accent">⬇ Download This Tool (HTML)</button>
+  </div>
+
+  <div class="grid3" style="margin:8px 0">
+    <div class="card" style="margin:0;padding:10px"><div style="font-size:10px;color:var(--fg2)">Files</div><div style="font-size:18px;font-weight:600" id="statFiles">—</div></div>
+    <div class="card" style="margin:0;padding:10px"><div style="font-size:10px;color:var(--fg2)">Total Lines</div><div style="font-size:18px;font-weight:600" id="statLines">—</div></div>
+    <div class="card" style="margin:0;padding:10px"><div style="font-size:10px;color:var(--fg2)">Validation</div><div style="font-size:14px;font-weight:600" id="statValidation">Not run</div></div>
+  </div>
+
+  <div class="output-area">
+    <div class="output-toolbar">
+      <span class="filename" id="outputFilename">No file selected</span>
+      <button onclick="copyCurrent()" class="small">Copy</button>
+      <button onclick="downloadCurrent()" class="small">Download</button>
+      <button onclick="searchInCode()" class="small">Find</button>
+    </div>
+    <div class="output-split">
+      <div class="file-tree" id="fileTree"></div>
+      <div class="code-viewer" id="codeViewer"><span style="color:var(--fg3);font-style:italic">Click "Generate All Files" to begin. Then select files from the tree.</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Generation Console <span class="cnt" id="consoleCount">0 messages</span>
+      <div class="tools"><button onclick="clearConsole()" class="small">Clear</button></div>
+    </div>
+    <div class="console" id="console"><div class="info">[READY] Sketchware Pro App Generator v2.0 initialized.</div><div>[INFO] Click "Generate All Files" to produce all code files.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Validation Report</div>
+    <div id="validationReport" style="font-size:12px;color:var(--fg2)">No validation run yet. Click "Validate" to check for errors.</div>
+  </div>
+</div>
+<!-- ===================== TAB: ENGINE STUDIO ===================== -->
+<div class="tab-panel" id="tab-engine">
+  <div class="banner">
+    <b>⚡ Engine Studio</b> — JSON-driven dynamic UI engine. Design screens, fields, actions, components, and visibility rules. The engine renders any JSON to a live Android UI without APK updates. Built from the architecture in <code>best informations.txt</code>.
+    <div class="grid2" style="margin-top:6px">
+      <div><b>Engine concept:</b> Shell APK + Server JSON = dynamic apps</div>
+      <div><b>Field types:</b> 16 types (text, code, file_upload, radio_scroll, checkbox_multi...)</div>
+      <div><b>Action types:</b> 25+ (open_screen, show_popup, start_db_update, share_app...)</div>
+      <div><b>Components:</b> Reusable btn_share, menu_3dots referenced by component_id</div>
+    </div>
+  </div>
+
+  <div class="btn-bar">
+    <button onclick="engineLoadTemplate('store')" class="primary small">🛒 Store Template</button>
+    <button onclick="engineLoadTemplate('directory')" class="primary small">📖 Directory Template</button>
+    <button onclick="engineLoadTemplate('form')" class="primary small">📝 Form Template</button>
+    <button onclick="engineLoadTemplate('news')" class="primary small">📰 News Template</button>
+    <button onclick="engineLoadTemplate('yemeni_medicine')" class="primary small">💊 Yemeni Medicine</button>
+    <button onclick="engineAddScreen()" class="accent small">+ Add Screen</button>
+    <button onclick="engineExportJSON()" class="small">💾 Export Engine JSON</button>
+    <button onclick="engineImportJSON()" class="small">📥 Import Engine JSON</button>
+  </div>
+
+  <div class="engine-builder">
+    <div class="card">
+      <div class="card-title">Screens <span class="cnt" id="engineScreenCount">0</span></div>
+      <div class="engine-screen-list" id="engineScreenList"></div>
+
+      <div class="divider"></div>
+      <div class="card-title">Screen Editor <span class="cnt" id="engineCurrentScreen">—</span></div>
+      <div class="row"><label>Screen ID</label><input type="text" id="engineScreenId" placeholder="screen_home" oninput="engineUpdateScreen()"></div>
+      <div class="row"><label>Title</label><input type="text" id="engineScreenTitle" placeholder="Home Screen" oninput="engineUpdateScreen()"></div>
+      <div class="row">
+        <label>Layout</label>
+        <select id="engineScreenLayout" onchange="engineUpdateScreen()">
+          <option value="grid_2_columns">Grid 2 Columns</option>
+          <option value="scroll_list">Scroll List</option>
+          <option value="search_with_tabs">Search + Tabs</option>
+          <option value="form_with_terms">Form + Terms</option>
+          <option value="form_dynamic">Dynamic Form</option>
+          <option value="list">List</option>
+          <option value="grid">Grid</option>
+          <option value="form">Form</option>
+          <option value="details">Details</option>
+          <option value="banner_ad">Banner Ad</option>
+        </select>
+        <label>Type</label>
+        <select id="engineScreenType" onchange="engineUpdateScreen()">
+          <option value="list">list</option>
+          <option value="form">form</option>
+          <option value="details">details</option>
+          <option value="dialog">dialog</option>
+        </select>
+      </div>
+
+      <div class="divider"></div>
+      <div class="card-title">Fields <span class="cnt" id="engineFieldCount">0</span>
+        <div class="tools"><button onclick="engineAddField()" class="primary small">+ Add Field</button></div>
+      </div>
+      <div id="engineFieldsList"></div>
+
+      <div class="divider"></div>
+      <div class="card-title">Actions / Buttons <span class="cnt" id="engineActionCount">0</span>
+        <div class="tools"><button onclick="engineAddAction()" class="primary small">+ Add Action</button></div>
+      </div>
+      <div id="engineActionsList"></div>
+
+      <div class="divider"></div>
+      <div class="card-title">Components Registry</div>
+      <div class="components-grid" id="engineComponentsList"></div>
+      <div class="row" style="margin-top:8px">
+        <input type="text" id="engineCompId" placeholder="btn_share" style="flex:1">
+        <select id="engineCompType" style="flex:1">
+          <option value="icon_button">icon_button</option>
+          <option value="popup_menu">popup_menu</option>
+          <option value="banner">banner</option>
+          <option value="card">card</option>
+        </select>
+        <button onclick="engineAddComponent()" class="small">Add</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Live Preview (this screen)</div>
+      <div class="lp-phone-wrap" style="height:340px">
+        <div class="lp-phone" style="width:200px;height:320px">
+          <div class="lp-screen" id="engineLivePreview">
+            <div style="padding:30px;text-align:center;color:#94a3b8">Select a screen to preview</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+      <div class="card-title">Engine JSON Output</div>
+      <textarea id="engineJSONOutput" readonly style="min-height:200px;font-size:11px"></textarea>
+      <div class="btn-bar">
+        <button onclick="engineCopyJSON()" class="small">📋 Copy JSON</button>
+        <button onclick="engineDownloadJSON()" class="small">💾 Download .json</button>
+        <button onclick="engineRenderLivePreview()" class="accent small">▶ Render Preview</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== TAB: KOTLIN ENGINE ===================== -->
+<div class="tab-panel" id="tab-kotlin">
+  <div class="banner">
+    <b>🟣 Kotlin Engine Files</b> — Generate all <code>.kt</code> files for the dynamic JSON-driven Android engine. These files together form the complete engine that reads JSON from server and builds UI + logic without APK updates. Compatible with Sketchware Pro / Android Studio.
+  </div>
+
+  <div class="btn-bar">
+    <button onclick="generateKotlinEngine()" class="primary">⚡ Generate All Kotlin Engine Files</button>
+    <button onclick="kotlinSelectAll()" class="small">Select All</button>
+    <button onclick="kotlinDownloadZip()" class="accent">📦 Download Kotlin ZIP</button>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <div class="card-title">Available Kotlin Files <span class="cnt" id="kotlinFileCount">0</span></div>
+      <div class="scroll-list" id="kotlinFileList" style="max-height:520px"></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Code Viewer <span class="cnt" id="kotlinCurrentFile">—</span></div>
+      <div class="kotlin-snippet" id="kotlinCodeViewer">Click a file on the left to view it.</div>
+      <div class="btn-bar">
+        <button onclick="kotlinCopyCurrent()" class="small">📋 Copy</button>
+        <button onclick="kotlinDownloadCurrent()" class="small">💾 Download</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== TAB: FIREBASE RULES ===================== -->
+<div class="tab-panel" id="tab-rules">
+  <div class="banner">
+    <b>🔥 Firebase Realtime Database Rules</b> — Control who can read/write every node. Admins are identified by phone/email match (no Google OAuth required). The engine queries <code>/config/admins</code> and <code>/permissions/$userId</code> at runtime.
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <div class="card-title">firebase.rules (JSON)</div>
+      <div class="help-text">Edit the rules below. The engine reads these on every action via <code>checkPermissionFromFirebase()</code>.</div>
+      <textarea class="rules-editor" id="firebaseRulesInput" spellcheck="false"></textarea>
+      <div class="btn-bar">
+        <button onclick="rulesGenerate()" class="primary small">⚡ Auto-Generate Default Rules</button>
+        <button onclick="rulesCopy()" class="small">📋 Copy</button>
+        <button onclick="rulesDownload()" class="small">💾 Download rules.json</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Admins (/config/admins)</div>
+      <div class="help-text">Each admin is identified by phone OR email. Add them here — the engine matches <code>auth.phone</code> or <code>auth.email</code> against this list.</div>
+      <div class="admin-row" style="background:var(--surface2);font-weight:600;font-size:11px">
+        <div>Phone (+967...)</div>
+        <div>Email</div>
+        <div>Role</div>
+        <div>Action</div>
+      </div>
+      <div id="adminsList"></div>
+      <div class="admin-row" style="margin-top:8px">
+        <input type="text" id="newAdminPhone" placeholder="+967777123456">
+        <input type="text" id="newAdminEmail" placeholder="admin@app.com">
+        <select id="newAdminRole">
+          <option value="super_admin">super_admin</option>
+          <option value="admin">admin</option>
+          <option value="moderator">moderator</option>
+        </select>
+        <button onclick="addAdmin()" class="primary small">Add</button>
+      </div>
+
+      <div class="divider"></div>
+      <div class="card-title">Feature Flags (/config/feature_flags)</div>
+      <div class="help-text">Toggle features on/off for ALL users. Engine reads these on every screen render.</div>
+      <div id="featureFlagsList"></div>
+      <div class="row" style="margin-top:8px">
+        <input type="text" id="newFlagKey" placeholder="enable_contributions" style="flex:1">
+        <select id="newFlagValue" style="width:100px">
+          <option value="true">true</option>
+          <option value="false">false</option>
+        </select>
+        <button onclick="addFeatureFlag()" class="small">Add</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Permission Matrix (/permissions/$userId)</div>
+    <div class="help-text">Per-user overrides. Each entry controls visibility + execution of a button ID. Engine checks this AFTER feature_flags.</div>
+    <div class="admin-row" style="background:var(--surface2);font-weight:600;font-size:11px">
+      <div>User ID</div>
+      <div>Button ID</div>
+      <div>Allowed</div>
+      <div>Action</div>
+    </div>
+    <div id="permMatrixList"></div>
+    <div class="admin-row" style="margin-top:8px">
+      <input type="text" id="newPermUser" placeholder="USER_123">
+      <input type="text" id="newPermBtn" placeholder="btn_companies">
+      <select id="newPermAllowed">
+        <option value="true">true</option>
+        <option value="false">false</option>
+      </select>
+      <button onclick="addPermMatrix()" class="primary small">Add</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== TAB: ADMIN PANEL ===================== -->
+<div class="tab-panel" id="tab-admin">
+  <div class="banner">
+    <b>👑 Admin Panel</b> — Visual controls matching <code>AdminPanelActivity.kt</code>. Admin logs in with phone + email (matched against <code>/config/admins</code>). All actions are persisted to <code>/admin_responses/</code> for audit.
+  </div>
+
+  <div id="adminLoginArea" class="admin-login">
+    <div class="card-title" style="text-align:center">🔐 Admin Login</div>
+    <div class="help-text" style="text-align:center;margin-bottom:10px">Login is verified against <code>/config/admins</code> in Firebase. No Google OAuth needed.</div>
+    <div class="row"><label>Phone</label><input type="text" id="adminLoginPhone" placeholder="+967777123456" style="flex:1"></div>
+    <div class="row"><label>Email</label><input type="text" id="adminLoginEmail" placeholder="admin@app.com" style="flex:1"></div>
+    <button onclick="adminLogin()" class="primary" style="width:100%;margin-top:10px">Login</button>
+    <div id="adminLoginResult" style="margin-top:8px;font-size:12px;text-align:center"></div>
+  </div>
+
+  <div id="adminToolsArea" style="display:none">
+    <div class="card">
+      <div class="card-title">Welcome, Admin 👋 <span class="cnt" id="adminRole">—</span></div>
+      <div class="admin-tools-grid">
+        <div class="admin-tool-card" onclick="openAdminTool('btn_manager')"><span class="at-ico">🎛️</span><div class="at-name">Button Manager</div><div class="at-desc">Enable/disable any button per user</div></div>
+        <div class="admin-tool-card" onclick="openAdminTool('notification_sender')"><span class="at-ico">📢</span><div class="at-name">Notification Sender</div><div class="at-desc">Push notification to all / segment</div></div>
+        <div class="admin-tool-card" onclick="openAdminTool('coupon_manager')"><span class="at-ico">🎟️</span><div class="at-name">Coupon Manager</div><div class="at-desc">Create coupons, attach to users</div></div>
+        <div class="admin-tool-card" onclick="openAdminTool('json_builder')"><span class="at-ico">🏗️</span><div class="at-name">JSON Builder</div><div class="at-desc">Build new screens via UI</div></div>
+        <div class="admin-tool-card" onclick="openAdminTool('db_uploader')"><span class="at-ico">📊</span><div class="at-name">DB Uploader</div><div class="at-desc">Upload Excel DB to all users</div></div>
+        <div class="admin-tool-card" onclick="openAdminTool('render_config')"><span class="at-ico">📄</span><div class="at-name">Render Config</div><div class="at-desc">Set mandatory fields, ordering</div></div>
+        <div class="admin-tool-card" onclick="openAdminTool('responses_viewer')"><span class="at-ico">📥</span><div class="at-name">Responses Viewer</div><div class="at-desc">View user submissions as Excel</div></div>
+        <div class="admin-tool-card" onclick="openAdminTool('logs_viewer')"><span class="at-ico">📜</span><div class="at-name">Audit Logs</div><div class="at-desc">Review every admin action</div></div>
+        <div class="admin-tool-card" onclick="openAdminTool('user_role')"><span class="at-ico">👥</span><div class="at-name">User Roles</div><div class="at-desc">Promote/demote users</div></div>
+        <div class="admin-tool-card" onclick="openAdminTool('system_health')"><span class="at-ico">💚</span><div class="at-name">System Health</div><div class="at-desc">DB size, sync status, errors</div></div>
+      </div>
+    </div>
+
+    <div class="card" id="adminToolContainer">
+      <div class="card-title">Tool Output <span class="cnt" id="adminToolName">—</span></div>
+      <div id="adminToolOutput" style="font-size:13px;color:var(--fg2)">Click any tool above to begin.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== TAB: UNIFIED RENDERER ===================== -->
+<div class="tab-panel" id="tab-renderer">
+  <div class="banner">
+    <b>📄 Unified Renderer</b> — Every list/detail/search/filter result is rendered through ONE template defined here. Matches the format from "الدليل اليمني للأدوية". Admin controls mandatory fields, ordering, app footer text, and link.
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <div class="card-title">Render Configuration</div>
+      <div class="row"><label>App Name</label><input type="text" id="renderAppName" value="الدليل اليمني للأدوية" style="flex:1" oninput="renderUnifiedPreview()"></div>
+      <div class="row"><label>App Link</label><input type="text" id="renderAppLink" value="https://play.google.com/store/apps/details?id=net.tecseo.pharmadirectory" style="flex:1" oninput="renderUnifiedPreview()"></div>
+      <div class="row"><label>Separator</label><input type="text" id="renderSeparator" value="===================" style="flex:1" oninput="renderUnifiedPreview()"></div>
+
+      <div class="divider"></div>
+      <div class="card-title">Field Order & Mandatory</div>
+      <div class="help-text">Check "Mandatory" to always show (with "غير متوفر" if empty). Order = top-to-bottom.</div>
+      <div id="renderFieldsList"></div>
+      <div class="row" style="margin-top:8px">
+        <input type="text" id="newRenderFieldKey" placeholder="agent" style="flex:1">
+        <input type="text" id="newRenderFieldLabel" placeholder="الوكيل" style="flex:1">
+        <button onclick="addRenderField()" class="small">Add Field</button>
+      </div>
+
+      <div class="divider"></div>
+      <div class="card-title">Sample Data (preview)</div>
+      <div class="help-text">Edit this JSON to preview how the renderer formats different records.</div>
+      <textarea id="renderSampleData" style="min-height:140px;font-size:11px" oninput="renderUnifiedPreview()"></textarea>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Unified Preview</div>
+      <div class="unified-preview" id="unifiedPreviewBox">—</div>
+      <div class="btn-bar">
+        <button onclick="copyUnifiedPreview()" class="small">📋 Copy Text</button>
+        <button onclick="downloadUnifiedPreview('txt')" class="small">💾 .txt</button>
+        <button onclick="downloadUnifiedPreview('json')" class="small">💾 .json</button>
+        <button onclick="downloadUnifiedPreview('csv')" class="small">💾 .csv</button>
+      </div>
+
+      <div class="divider"></div>
+      <div class="card-title">Render Config JSON (save to /config/render_settings)</div>
+      <textarea id="renderConfigJSON" readonly style="min-height:160px;font-size:11px"></textarea>
+      <button onclick="copyRenderConfig()" class="small">📋 Copy Config</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== TAB: THEME STUDIO (v5.0 NEW) ===================== -->
+<div class="tab-panel" id="tab-theme">
+  <div class="banner">
+    <b>🎨 Theme Studio (v5.0)</b> — Style-Driven JSON system. All colors, fonts, sizes, shadows, corners, spacing are driven by JSON.
+    Edit <code>app_theme</code> / <code>layout_components</code> / <code>screen_layouts</code> and the live preview + generated Kotlin engine will read them at runtime via <code>ThemeManager.kt</code>.
+    Upload the JSON to Firebase at <code>/config/app_config.json</code> to update the entire app remotely without rebuilding the APK.
+  </div>
+
+  <div class="btn-bar">
+    <button onclick="tsLoadDefault()" class="btn-load-theme">⚡ Load Default Style-Driven JSON</button>
+    <button onclick="tsApplyTheme()" class="primary" style="padding:10px 20px;font-size:13px">🔄 Apply Theme to Preview</button>
+    <button onclick="tsToggleDarkPreview()" class="accent">🌙 Toggle Dark Preview</button>
+    <button onclick="tsExportThemeJSON()" class="primary">📋 Export Theme JSON</button>
+    <button onclick="tsImportThemeJSON()" class="accent">📥 Import Theme JSON</button>
+    <button onclick="tsUploadToFirebaseMock()" class="primary" style="background:#FF6F00;border-color:#FF6F00">☁ Simulate Firebase Upload</button>
+    <div style="flex:1"></div>
+    <span class="stat-pill"><b id="tsTokenCount">0</b> tokens</span>
+    <span class="stat-pill"><b id="tsComponentCount">0</b> components</span>
+    <span class="stat-pill"><b id="tsLayoutCount">0</b> layouts</span>
+  </div>
+
+  <div class="theme-status ok" id="tsStatus">✓ Theme engine ready. Click "Load Default Style-Driven JSON" to begin.</div>
+
+  <div class="section-tabs">
+    <div class="section-tab active" onclick="tsSwitchSection('colors', event)">🎨 Colors</div>
+    <div class="section-tab" onclick="tsSwitchSection('typography', event)">🔤 Typography</div>
+    <div class="section-tab" onclick="tsSwitchSection('spacing', event)">📏 Spacing</div>
+    <div class="section-tab" onclick="tsSwitchSection('borders', event)">🔲 Borders</div>
+    <div class="section-tab" onclick="tsSwitchSection('shadows', event)">🌑 Shadows</div>
+    <div class="section-tab" onclick="tsSwitchSection('animations', event)">⚡ Animations</div>
+    <div class="section-tab" onclick="tsSwitchSection('gradients', event)">🌈 Gradients</div>
+    <div class="section-tab" onclick="tsSwitchSection('components', event)">🧩 Components</div>
+    <div class="section-tab" onclick="tsSwitchSection('layouts', event)">📐 Screen Layouts</div>
+    <div class="section-tab" onclick="tsSwitchSection('json', event)">📄 JSON Output</div>
+    <div class="section-tab" onclick="tsSwitchSection('preview', event)">👁 Live Preview</div>
+  </div>
+
+  <!-- COLORS -->
+  <div class="section-panel active" id="ts-section-colors">
+    <div class="card">
+      <div class="card-title">Color Tokens (app_theme.colors) <span class="cnt">23</span></div>
+      <div class="help-text">Each token is exported as a CSS variable <code>--color-&lt;name&gt;</code> and as an Android color resource <code>@color/&lt;name&gt;</code>.</div>
+      <div class="token-grid" id="tsColorsGrid"></div>
+    </div>
+  </div>
+
+  <!-- TYPOGRAPHY -->
+  <div class="section-panel" id="ts-section-typography">
+    <div class="card">
+      <div class="card-title">Typography (app_theme.typography) <span class="cnt">12</span></div>
+      <div class="row"><label>Font Family</label><input type="text" id="tsFontFamily" value="Cairo, sans-serif" style="flex:1" oninput="tsUpdateTypography()"></div>
+      <div class="divider"></div>
+      <div class="card-title">Text Styles <span class="cnt">11</span></div>
+      <div class="help-text">Each style has size (px), weight, color (token ref), line_height.</div>
+      <div class="token-grid" id="tsTypographyGrid"></div>
+    </div>
+  </div>
+
+  <!-- SPACING -->
+  <div class="section-panel" id="ts-section-spacing">
+    <div class="card">
+      <div class="card-title">Spacing Scale (app_theme.spacing) <span class="cnt">7</span></div>
+      <div class="help-text">Used by padding, margin, gap. Exported as <code>--space-&lt;name&gt;</code> and <code>@dimen/spacing_&lt;name&gt;</code>.</div>
+      <div class="token-grid" id="tsSpacingGrid"></div>
+    </div>
+  </div>
+
+  <!-- BORDERS -->
+  <div class="section-panel" id="ts-section-borders">
+    <div class="card">
+      <div class="card-title">Borders (app_theme.borders)</div>
+      <div class="token-grid" id="tsBordersGrid"></div>
+    </div>
+  </div>
+
+  <!-- SHADOWS -->
+  <div class="section-panel" id="ts-section-shadows">
+    <div class="card">
+      <div class="card-title">Shadows (app_theme.shadows) <span class="cnt">4 levels</span></div>
+      <div class="help-text">Each shadow has x, y, blur, spread, color. Exported as <code>--shadow-&lt;name&gt;</code>.</div>
+      <div class="token-grid" id="tsShadowsGrid"></div>
+    </div>
+  </div>
+
+  <!-- ANIMATIONS -->
+  <div class="section-panel" id="ts-section-animations">
+    <div class="card">
+      <div class="card-title">Animations (app_theme.animations)</div>
+      <div class="token-grid" id="tsAnimationsGrid"></div>
+    </div>
+  </div>
+
+  <!-- GRADIENTS -->
+  <div class="section-panel" id="ts-section-gradients">
+    <div class="card">
+      <div class="card-title">Gradients (app_theme.gradients) <span class="cnt">3</span></div>
+      <div class="help-text">Each gradient has start_color, end_color, angle (deg). Referenced via <code>gradient.&lt;name&gt;</code>.</div>
+      <div class="token-grid" id="tsGradientsGrid"></div>
+    </div>
+  </div>
+
+  <!-- COMPONENTS -->
+  <div class="section-panel" id="ts-section-components">
+    <div class="card">
+      <div class="card-title">Layout Components (layout_components) <span class="cnt">8</span></div>
+      <div class="help-text">Reusable component definitions. Each component has a <code>style</code> block referencing <code>app_theme</code> tokens via dot-notation (e.g. <code>gradient.header_gradient</code>, <code>typography.heading_2</code>).</div>
+      <div class="variant-tabs" id="tsComponentTabs"></div>
+      <div id="tsComponentEditor"></div>
+    </div>
+  </div>
+
+  <!-- LAYOUTS -->
+  <div class="section-panel" id="ts-section-layouts">
+    <div class="card">
+      <div class="card-title">Screen Layouts (screen_layouts) <span class="cnt">6</span></div>
+      <div class="help-text">Screen-level layout composition. Each layout defines sections (header, stats, search, tabs, results, actions, etc.) referencing <code>layout_components</code>.</div>
+      <div class="variant-tabs" id="tsLayoutTabs"></div>
+      <div id="tsLayoutEditor"></div>
+    </div>
+  </div>
+
+  <!-- JSON OUTPUT -->
+  <div class="section-panel" id="ts-section-json">
+    <div class="card">
+      <div class="card-title">Style-Driven JSON (paste into Firebase /config/app_config.json)</div>
+      <div class="btn-bar">
+        <button onclick="tsRefreshJSON()" class="small">🔄 Refresh</button>
+        <button onclick="tsCopyJSON()" class="small">📋 Copy</button>
+        <button onclick="tsDownloadJSON()" class="small">💾 Download app_config.json</button>
+        <button onclick="tsInjectIntoUnified()" class="primary small">⚡ Inject into Unified Output</button>
+      </div>
+      <div class="json-output-area" id="tsJSONOutput">—</div>
+    </div>
+  </div>
+
+  <!-- LIVE PREVIEW -->
+  <div class="section-panel" id="ts-section-preview">
+    <div class="card">
+      <div class="card-title">Live Style-Driven Preview</div>
+      <div class="help-text">This preview is rendered using <code>renderHome()</code>, <code>renderServiceCard()</code>, <code>renderAdminPanel()</code> — all reading from <code>app_theme</code> + <code>layout_components</code> + <code>screen_layouts</code>. The same logic is shipped in <code>ThemeManager.kt</code> + <code>StyleApplier.kt</code> in the generated APK.</div>
+      <div class="btn-bar">
+        <button onclick="tsRenderPreview('home')" class="small">🏠 Home</button>
+        <button onclick="tsRenderPreview('admin')" class="small">👑 Admin</button>
+        <button onclick="tsRenderPreview('form')" class="small">📝 Form</button>
+        <button onclick="tsRenderPreview('details')" class="small">📄 Details</button>
+        <button onclick="tsRenderPreview('list')" class="small">📋 List</button>
+        <button onclick="tsRenderPreview('grid')" class="small">🔲 Grid</button>
+      </div>
+      <div class="preview-frame" id="tsPreviewFrame">
+        <div style="padding:30px;text-align:center;color:var(--color-text_secondary)">Click a screen button above to render the style-driven preview.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===================== TAB: ADS STUDIO (v6.0 NEW) ===================== -->
+<div class="tab-panel" id="tab-ads">
+  <div class="banner" style="background:linear-gradient(135deg,#FF6F00,#F59E0B);color:#fff;border-color:#FF6F00">
+    <b>📢 Ads Studio (v6.0 NEW)</b> — Universal JSON-driven ad system. Supports AdMob, Facebook, Unity, and custom JSON ads.
+    All ad unit IDs come from Firebase — no secrets in APK. Works online (live ads) and offline (cached JSON ads).
+    6 ad types: Banner, Interstitial, Rewarded, Native, App Open, Dynamic JSON.
+  </div>
+
+  <div class="btn-bar">
+    <button onclick="adsLoadDefault()" class="btn-load-theme" style="background:#15803d;border-color:#15803d">⚡ Load Default Ad Config</button>
+    <button onclick="adsExportJSON()" class="primary">📋 Export ad_config.json</button>
+    <button onclick="adsImportJSON()" class="accent">📥 Import ad_config.json</button>
+    <button onclick="adsInjectIntoUnified()" class="primary" style="background:#FF6F00;border-color:#FF6F00">⚡ Inject into Unified Output</button>
+    <div style="flex:1"></div>
+    <span class="stat-pill"><b id="adsEnabledCount">0</b>/<b id="adsTotalCount">6</b> enabled</span>
+    <span class="stat-pill"><b id="adsPlatformCount">4</b> platforms</span>
+  </div>
+
+  <div class="section-tabs">
+    <div class="section-tab active" onclick="adsSwitchSection('config', event)">⚙️ Global Config</div>
+    <div class="section-tab" onclick="adsSwitchSection('banner', event)">📊 Banner</div>
+    <div class="section-tab" onclick="adsSwitchSection('interstitial', event)">🖼️ Interstitial</div>
+    <div class="section-tab" onclick="adsSwitchSection('rewarded', event)">🎁 Rewarded</div>
+    <div class="section-tab" onclick="adsSwitchSection('native', event)">📰 Native</div>
+    <div class="section-tab" onclick="adsSwitchSection('app_open', event)">🚀 App Open</div>
+    <div class="section-tab" onclick="adsSwitchSection('dynamic', event)">⚡ Dynamic JSON</div>
+    <div class="section-tab" onclick="adsSwitchSection('preview', event)">👁 Live Preview</div>
+    <div class="section-tab" onclick="adsSwitchSection('json', event)">📄 JSON Output</div>
+  </div>
+
+  <!-- Global config -->
+  <div class="section-panel active" id="ads-section-config">
+    <div class="card">
+      <div class="card-title">Global Ad Configuration (ad_config.root)</div>
+      <div class="row"><label>Ads Enabled</label>
+        <select id="adsGlobalEnabled" style="flex:1" onchange="adsUpdate()">
+          <option value="true">✅ Enabled</option>
+          <option value="false">❌ Disabled</option>
+        </select>
+      </div>
+      <div class="row"><label>Default Platform</label>
+        <select id="adsDefaultPlatform" style="flex:1" onchange="adsUpdate()">
+          <option value="custom_json">Custom JSON (no SDK)</option>
+          <option value="admob">Google AdMob</option>
+          <option value="facebook">Facebook Audience Network</option>
+          <option value="unity">Unity Ads</option>
+        </select>
+      </div>
+      <div class="row"><label>AdMob App ID</label><input type="text" id="adsAdMobAppId" placeholder="ca-app-pub-XXXXXXXXXXXXXXXX~YYYYYYYYYY" style="flex:1" oninput="adsUpdate()"></div>
+      <div class="row"><label>Test Mode</label>
+        <select id="adsTestMode" style="flex:1" onchange="adsUpdate()">
+          <option value="true">✅ Test (use test ad unit IDs)</option>
+          <option value="false">❌ Production (use real ad unit IDs)</option>
+        </select>
+      </div>
+      <div class="row"><label>Targeting Countries</label><input type="text" id="adsTargetCountries" placeholder="YE,SA,AE" style="flex:1" oninput="adsUpdate()"></div>
+      <div class="row"><label>Targeting Age Range</label>
+        <input type="number" id="adsAgeMin" placeholder="13" style="flex:1" oninput="adsUpdate()">
+        <input type="number" id="adsAgeMax" placeholder="65" style="flex:1" oninput="adsUpdate()">
+      </div>
+    </div>
+  </div>
+
+  <!-- Banner -->
+  <div class="section-panel" id="ads-section-banner">
+    <div class="card">
+      <div class="card-title">📊 Banner Ads (sticky bottom/top)</div>
+      <div class="ad-type-card" id="atc-banner">
+        <div class="atc-header">
+          <span class="atc-name">Banner</span>
+          <span class="atc-toggle" onclick="adsToggleType('banner')">OFF</span>
+        </div>
+        <div class="atc-fields">
+          <div class="row"><label>Platform</label><select id="banner-platform" onchange="adsUpdate()"><option value="custom_json">Custom JSON</option><option value="admob">AdMob</option><option value="facebook">Facebook</option><option value="unity">Unity</option></select></div>
+          <div class="row"><label>Placement</label><select id="banner-placement" onchange="adsUpdate()"><option value="bottom">Bottom</option><option value="top">Top</option></select></div>
+          <div class="row"><label>Ad Unit ID</label><input type="text" id="banner-ad_unit_id" placeholder="ca-app-pub-xxx/yyy" oninput="adsUpdate()"></div>
+          <div class="row"><label>Refresh (sec)</label><input type="number" id="banner-refresh_sec" value="30" oninput="adsUpdate()"></div>
+          <div class="row"><label>Frequency</label><select id="banner-frequency" onchange="adsUpdate()"><option value="always">Always</option><option value="every_3">Every 3 screens</option><option value="every_5">Every 5 screens</option></select></div>
+          <div class="row"><label>Fallback Text</label><input type="text" id="banner-fallback_text" value="📢 مساحة إعلانية" oninput="adsUpdate()"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interstitial -->
+  <div class="section-panel" id="ads-section-interstitial">
+    <div class="card">
+      <div class="card-title">🖼️ Interstitial Ads (full-screen between actions)</div>
+      <div class="ad-type-card" id="atc-interstitial">
+        <div class="atc-header">
+          <span class="atc-name">Interstitial</span>
+          <span class="atc-toggle" onclick="adsToggleType('interstitial')">OFF</span>
+        </div>
+        <div class="atc-fields">
+          <div class="row"><label>Platform</label><select id="interstitial-platform" onchange="adsUpdate()"><option value="custom_json">Custom JSON</option><option value="admob">AdMob</option><option value="facebook">Facebook</option><option value="unity">Unity</option></select></div>
+          <div class="row"><label>Ad Unit ID</label><input type="text" id="interstitial-ad_unit_id" placeholder="ca-app-pub-xxx/zzz" oninput="adsUpdate()"></div>
+          <div class="row"><label>Frequency</label><select id="interstitial-frequency" onchange="adsUpdate()"><option value="always">Always</option><option value="every_3">Every 3 clicks</option><option value="every_5">Every 5 clicks</option><option value="user_initiated">User-initiated</option></select></div>
+          <div class="row"><label>Cooldown (sec)</label><input type="number" id="interstitial-cooldown_sec" value="30" oninput="adsUpdate()"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rewarded -->
+  <div class="section-panel" id="ads-section-rewarded">
+    <div class="card">
+      <div class="card-title">🎁 Rewarded Ads (user watches ad → earns reward)</div>
+      <div class="ad-type-card" id="atc-rewarded">
+        <div class="atc-header">
+          <span class="atc-name">Rewarded</span>
+          <span class="atc-toggle" onclick="adsToggleType('rewarded')">OFF</span>
+        </div>
+        <div class="atc-fields">
+          <div class="row"><label>Platform</label><select id="rewarded-platform" onchange="adsUpdate()"><option value="custom_json">Custom JSON</option><option value="admob">AdMob</option><option value="facebook">Facebook</option><option value="unity">Unity</option></select></div>
+          <div class="row"><label>Ad Unit ID</label><input type="text" id="rewarded-ad_unit_id" placeholder="ca-app-pub-xxx/www" oninput="adsUpdate()"></div>
+          <div class="row"><label>Reward Type</label><select id="rewarded-reward_type" onchange="adsUpdate()"><option value="points">Points</option><option value="subscription_day">Subscription Day</option><option value="feature_unlock">Feature Unlock</option></select></div>
+          <div class="row"><label>Reward Amount</label><input type="number" id="rewarded-reward_amount" value="10" oninput="adsUpdate()"></div>
+          <div class="row"><label>Cooldown (sec)</label><input type="number" id="rewarded-cooldown_sec" value="300" oninput="adsUpdate()"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Native -->
+  <div class="section-panel" id="ads-section-native">
+    <div class="card">
+      <div class="card-title">📰 Native Ads (in-feed card style)</div>
+      <div class="ad-type-card" id="atc-native">
+        <div class="atc-header">
+          <span class="atc-name">Native</span>
+          <span class="atc-toggle" onclick="adsToggleType('native')">OFF</span>
+        </div>
+        <div class="atc-fields">
+          <div class="row"><label>Platform</label><select id="native-platform" onchange="adsUpdate()"><option value="custom_json">Custom JSON</option><option value="admob">AdMob</option><option value="facebook">Facebook</option></select></div>
+          <div class="row"><label>Ad Unit ID</label><input type="text" id="native-ad_unit_id" placeholder="ca-app-pub-xxx/nnn" oninput="adsUpdate()"></div>
+          <div class="row"><label>Placement</label><select id="native-placement" onchange="adsUpdate()"><option value="in_feed">In Feed</option><option value="after_3">After 3 items</option><option value="after_5">After 5 items</option></select></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- App Open -->
+  <div class="section-panel" id="ads-section-app_open">
+    <div class="card">
+      <div class="card-title">🚀 App Open Ads (on app launch)</div>
+      <div class="ad-type-card" id="atc-app_open">
+        <div class="atc-header">
+          <span class="atc-name">App Open</span>
+          <span class="atc-toggle" onclick="adsToggleType('app_open')">OFF</span>
+        </div>
+        <div class="atc-fields">
+          <div class="row"><label>Platform</label><select id="app_open-platform" onchange="adsUpdate()"><option value="custom_json">Custom JSON</option><option value="admob">AdMob</option></select></div>
+          <div class="row"><label>Ad Unit ID</label><input type="text" id="app_open-ad_unit_id" placeholder="ca-app-pub-xxx/ooo" oninput="adsUpdate()"></div>
+          <div class="row"><label>Show on cold start</label><select id="app_open-cold_start" onchange="adsUpdate()"><option value="true">Yes</option><option value="false">No</option></select></div>
+          <div class="row"><label>Show on hot start</label><select id="app_open-hot_start" onchange="adsUpdate()"><option value="true">Yes</option><option value="false">No</option></select></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dynamic JSON Ads -->
+  <div class="section-panel" id="ads-section-dynamic">
+    <div class="card">
+      <div class="card-title">⚡ Dynamic JSON Ads (internal — no SDK needed)</div>
+      <div class="help-text">Define custom ads entirely in JSON. Used for self-promotion, affiliate links, or offline ads. No external SDK required — works fully offline.</div>
+      <div class="ad-type-card" id="atc-dynamic_json">
+        <div class="atc-header">
+          <span class="atc-name">Dynamic JSON</span>
+          <span class="atc-toggle" onclick="adsToggleType('dynamic_json')">OFF</span>
+        </div>
+        <div class="atc-fields">
+          <div class="row"><label>Frequency</label><select id="dynamic_json-frequency" onchange="adsUpdate()"><option value="always">Always</option><option value="every_3">Every 3</option><option value="every_5">Every 5</option></select></div>
+          <div class="row"><label>Cooldown (sec)</label><input type="number" id="dynamic_json-cooldown_sec" value="60" oninput="adsUpdate()"></div>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="card-title">Custom JSON Ads (array of ad objects)</div>
+      <div class="help-text">Each ad object: { id, title, subtitle, image_url, click_url, bg_color, text_color, duration_ms, target_countries[], target_roles[] }</div>
+      <textarea id="adsDynamicJSON" style="min-height:200px;font-size:11px" oninput="adsUpdate()">[
+  {
+    "id": "promo_summer_2026",
+    "title": "عرض الصيف 2026",
+    "subtitle": "خصم 50% على جميع الخدمات المميزة",
+    "image_url": "https://via.placeholder.com/320x60/FF6F00/FFFFFF?text=Summer+Sale",
+    "click_url": "https://play.google.com/store/apps/details?id=com.allarab.services",
+    "bg_color": "#FF6F00",
+    "text_color": "#FFFFFF",
+    "duration_ms": 5000,
+    "target_countries": ["YE", "SA", "AE"],
+    "target_roles": ["guest", "subscriber", "premium_user"]
+  }
+]</textarea>
+    </div>
+  </div>
+
+  <!-- Live Preview -->
+  <div class="section-panel" id="ads-section-preview">
+    <div class="card">
+      <div class="card-title">Live Ad Preview</div>
+      <div class="btn-bar">
+        <button onclick="adsPreviewAd('banner')" class="small">📊 Banner</button>
+        <button onclick="adsPreviewAd('interstitial')" class="small">🖼️ Interstitial</button>
+        <button onclick="adsPreviewAd('rewarded')" class="small">🎁 Rewarded</button>
+        <button onclick="adsPreviewAd('native')" class="small">📰 Native</button>
+        <button onclick="adsPreviewAd('app_open')" class="small">🚀 App Open</button>
+      </div>
+      <div class="ad-preview-frame" id="adsPreviewFrame">
+        <div style="padding:30px;text-align:center;color:var(--fg2)">Click a button above to preview each ad type</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JSON Output -->
+  <div class="section-panel" id="ads-section-json">
+    <div class="card">
+      <div class="card-title">ad_config.json (paste into Firebase /config/ad_config)</div>
+      <div class="btn-bar">
+        <button onclick="adsRefreshJSON()" class="small">🔄 Refresh</button>
+        <button onclick="adsCopyJSON()" class="small">📋 Copy</button>
+        <button onclick="adsDownloadJSON()" class="small">💾 Download</button>
+      </div>
+      <div class="json-preview" id="adsJSONOutput">—</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== TAB: IDENTITY STUDIO (v6.0 NEW) ===================== -->
+<div class="tab-panel" id="tab-identity">
+  <div class="banner" style="background:linear-gradient(135deg,#58a6ff,#1a7f37);color:#fff;border-color:#58a6ff">
+    <b>🔐 Identity Studio (v6.0 NEW)</b> — Dynamic Firebase Identity Shimming.
+    Admin can change <code>package name</code>, <code>project id</code>, <code>google-services.json</code> values, and more —
+    <b>WITHOUT rebuilding the APK</b>. Changes take effect on next app launch.
+  </div>
+
+  <div class="identity-warning">
+    ⚠️ <b>Important</b>: The real Android package name (<code>com.allarab.services</code>) cannot be changed post-install
+    (Android OS limitation). However, you can change the <b>virtual package name</b> shown in the UI, and you CAN change
+    all Firebase credentials (project ID, app ID, API key, database URL, storage bucket) which effectively switches
+    the app to a different Firebase project.
+  </div>
+
+  <div class="identity-info">
+    ℹ️ <b>How it works</b>: The app fetches <code>/config/app_identity</code> from Firebase on launch.
+    If the credentials there differ from the built-in ones, the app initializes a secondary <code>FirebaseApp</code>
+    instance with the new credentials and uses it for all subsequent calls. The old credentials remain as fallback.
+  </div>
+
+  <div class="btn-bar">
+    <button onclick="idLoadDefault()" class="btn-load-theme" style="background:#15803d;border-color:#15803d">⚡ Load Current Identity</button>
+    <button onclick="idExportJSON()" class="primary">📋 Export app_identity.json</button>
+    <button onclick="idGenerateNew()" class="accent">🔄 Generate New Identity</button>
+    <button onclick="idInjectIntoUnified()" class="primary" style="background:#FF6F00;border-color:#FF6F00">⚡ Inject into Unified Output</button>
+  </div>
+
+  <div class="identity-studio-grid">
+    <div class="card">
+      <div class="card-title">🎨 Virtual Fields (UI-only — reflect instantly)</div>
+      <div class="identity-field">
+        <label><span class="field-type virtual">VIRTUAL</span> app_name</label>
+        <input type="text" id="id-app_name" value="الدليل الشامل للخدمات" oninput="idUpdate()">
+      </div>
+      <div class="identity-field">
+        <label><span class="field-type virtual">VIRTUAL</span> app_link (Google Play URL)</label>
+        <input type="text" id="id-app_link" value="https://play.google.com/store/apps/details?id=com.allarab.services" oninput="idUpdate()">
+      </div>
+      <div class="identity-field">
+        <label><span class="field-type virtual">VIRTUAL</span> app_description</label>
+        <input type="text" id="id-app_description" value="منصة الخدمات العربية الشاملة" oninput="idUpdate()">
+      </div>
+      <div class="identity-field">
+        <label><span class="field-type virtual">VIRTUAL</span> app_logo_url</label>
+        <input type="text" id="id-app_logo_url" placeholder="https://..." oninput="idUpdate()">
+      </div>
+      <div class="identity-field">
+        <label><span class="field-type virtual">VIRTUAL</span> support_email</label>
+        <input type="text" id="id-support_email" value="mhmdkhldberdoom@gmail.com" oninput="idUpdate()">
+      </div>
+      <div class="identity-field">
+        <label><span class="field-type virtual">VIRTUAL</span> default_currency</label>
+        <input type="text" id="id-default_currency" value="YER" oninput="idUpdate()">
+      </div>
+      <div class="identity-field">
+        <label><span class="field-type virtual">VIRTUAL</span> default_language</label>
+        <input type="text" id="id-default_language" value="ar" oninput="idUpdate()">
+      </div>
+      <div class="identity-field">
+        <label><span class="field-type virtual">VIRTUAL</span> virtual_package_name (shown in About)</label>
+        <input type="text" id="id-virtual_package_name" value="com.allarab.services" oninput="idUpdate()">
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">🔥 Real Fields (Firebase re-init on next launch)</div>
+      <div class="identity-warning" style="margin:0 0 8px 0">
+        ⚠️ Changing these will switch the app to a different Firebase project on next launch.
+        Make sure the new project has the same database structure.
+      </div>
+      <div class="identity-field">
+        <label><span class="field-type real">REAL</span> firebase_project_id</label>
+        <input type="text" id="id-firebase_project_id" value="all-arab-services-750ad" oninput="idUpdate()">
+      </div>
+      <div class="identity-field">
+        <label><span class="field-type real">REAL</span> firebase_app_id</label>
+        <input type="text" id="id-firebase_app_id" value="1:1002499268790:android:9437bee4f4df9f93adc617" oninput="idUpdate()">
+      </div>
+      <div class="identity-field">
+        <label><span class="field-type real">REAL</span> firebase_api_key</label>
+        <input type="text" id="id-firebase_api_key" value="AIzaSyBm-ZwOv8oPd_0rms_2oesGz3fDmt5ogvA" oninput="idUpdate()">
+      </div>
+      <div class="identity-field">
+        <label><span class="field-type real">REAL</span> firebase_database_url</label>
+        <input type="text" id="id-firebase_database_url" value="https://all-arab-services-750ad-default-rtdb.europe-west1.firebasedatabase.app" oninput="idUpdate()">
+      </div>
+      <div class="identity-field">
+        <label><span class="field-type real">REAL</span> firebase_storage_bucket</label>
+        <input type="text" id="id-firebase_storage_bucket" value="all-arab-services-750ad.firebasestorage.app" oninput="idUpdate()">
+      </div>
+      <div class="identity-field">
+        <label><span class="field-type real">REAL</span> admob_app_id</label>
+        <input type="text" id="id-admob_app_id" placeholder="ca-app-pub-XXXXXXXXXXXXXXXX~YYYYYYYYYY" oninput="idUpdate()">
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📄 app_identity.json (paste into Firebase /config/app_identity)</div>
+    <div class="btn-bar">
+      <button onclick="idRefreshJSON()" class="small">🔄 Refresh</button>
+      <button onclick="idCopyJSON()" class="small">📋 Copy</button>
+      <button onclick="idDownloadJSON()" class="small">💾 Download</button>
+    </div>
+    <div class="json-preview" id="idJSONOutput">—</div>
+  </div>
+</div>
+
+
+<!-- ===================== TAB: HTML I/O (v6.1 NEW) ===================== -->
+<div class="tab-panel" id="tab-html-io">
+  <div class="banner" style="background:linear-gradient(135deg,#8250df,#bc8cff);color:#fff;border-color:#8250df">
+    <b>🔄 HTML I/O Converter (v6.1 NEW)</b> — Paste any HTML code and convert it instantly to:
+    <b>(1)</b> ZIP file (project structure: index.html + css/ + js/ + assets/ + manifest.json),
+    <b>(2)</b> JSON file (full structure: head + body + metadata),
+    <b>(3)</b> Reverse: JSON → HTML.
+    Uses DOMParser API + reuses the existing <code>createZip()</code> function. Works offline.
+  </div>
+
+  <div class="html-mode-tabs">
+    <div class="html-mode-tab active" onclick="htmlSwitchMode('to_zip', event)">📦 HTML → ZIP</div>
+    <div class="html-mode-tab" onclick="htmlSwitchMode('to_json', event)">📄 HTML → JSON</div>
+    <div class="html-mode-tab" onclick="htmlSwitchMode('from_json', event)">↩ JSON → HTML</div>
+    <div class="html-mode-tab" onclick="htmlSwitchMode('preview', event)">👁 Live Preview</div>
+  </div>
+
+  <!-- Mode: HTML → ZIP -->
+  <div class="html-mode-panel active" id="html-mode-to_zip">
+    <div class="html-io-grid">
+      <div class="card">
+        <div class="card-title">📥 Paste HTML Code</div>
+        <div class="btn-bar">
+          <button onclick="htmlLoadSample()" class="btn-html-load-sample small">📋 Load Sample</button>
+          <button onclick="htmlClearInput()" class="small">🗑 Clear</button>
+          <button onclick="htmlPasteFromClipboard()" class="small">📋 Paste from Clipboard</button>
+        </div>
+        <textarea id="htmlInputToZip" class="html-io-textarea" placeholder="<!DOCTYPE html>
+<html>
+<head>
+  <title>My Page</title>
+  <style>body { font-family: sans-serif; }</style>
+<script src="index.js"></script>
+</body>
+</html>
