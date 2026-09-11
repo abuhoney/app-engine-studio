@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.WindowManager;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
@@ -22,7 +21,7 @@ public class MainActivity extends Activity {
 
     protected void onCreate(Bundle b) {
         super.onCreate(b);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        // NO FLAG_LAYOUT_NO_LIMITS — let the system UI (status bar, nav bar) show normally
         webView = new WebView(this);
         WebSettings s = webView.getSettings();
         s.setJavaScriptEnabled(true);
@@ -36,6 +35,7 @@ public class MainActivity extends Activity {
         webView.setWebViewClient(new WebViewClient());
         webView.setWebChromeClient(new WebChromeClient());
         webView.addJavascriptInterface(this, "AndroidBridge");
+        // MATCH_PARENT layout — fills the content area (below status bar)
         FrameLayout root = new FrameLayout(this);
         root.addView(webView, new FrameLayout.LayoutParams(-1, -1));
         setContentView(root);
@@ -48,7 +48,7 @@ public class MainActivity extends Activity {
     }
 
     @JavascriptInterface public String getPlatform() { return "android"; }
-    @JavascriptInterface public String getVersion() { return "9.0.0"; }
+    @JavascriptInterface public String getVersion() { return "9.0.2"; }
     @JavascriptInterface public String getFilesDirPath() { return getDir().getAbsolutePath(); }
     @JavascriptInterface public boolean saveFile(String name, String content) { try { File d = getDir(); if (!d.exists()) d.mkdirs(); FileOutputStream w = new FileOutputStream(new File(d, name)); w.write(content.getBytes("UTF-8")); w.close(); return true; } catch (Exception e) { return false; } }
     @JavascriptInterface public String readFile(String path) { try { File f = new File(getDir(), path); if (!f.exists()) return ""; return new String(java.nio.file.Files.readAllBytes(f.toPath()), "UTF-8"); } catch (Exception e) { return ""; } }
@@ -56,11 +56,38 @@ public class MainActivity extends Activity {
     @JavascriptInterface public boolean deleteFile(String path) { try { return new File(getDir(), path).delete(); } catch (Exception e) { return false; } }
     @JavascriptInterface public boolean existsFile(String path) { try { return new File(getDir(), path).exists(); } catch (Exception e) { return false; } }
     @JavascriptInterface public void showToast(String msg) { Toast.makeText(this, msg, Toast.LENGTH_SHORT).show(); }
-    @JavascriptInterface public void installApk(String path) { try { File apk = new File(getDir(), path); if (!apk.exists()) { Toast.makeText(this, "File not found", Toast.LENGTH_SHORT).show(); return; } Intent intent = new Intent(Intent.ACTION_VIEW); intent.setDataAndType(Uri.fromFile(apk), "application/vnd.android.package-archive"); intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK); startActivity(intent); } catch (Exception e) { Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_LONG).show(); } }
+
+    // FIX: Instead of looking for a local file, open the GitHub download URL in browser
+    @JavascriptInterface public void installApk(String path) {
+        try {
+            // Open the APK download URL in the browser
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/abuhoney/app-engine-studio/releases/latest"));
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        } catch (Exception e) {
+            Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+        }
+    }
+
+    // FIX: Build APK by redirecting to the backend build endpoint
+    @JavascriptInterface public void buildApk(String projectData) {
+        try {
+            // Open the build page in browser
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://all-arab-services.onrender.com/api/build"));
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        } catch (Exception e) {
+            Toast.makeText(this, "Build error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+        }
+    }
+
     @JavascriptInterface public long getFreeSpace() { return getDir().getFreeSpace(); }
     @JavascriptInterface public String getDeviceInfo() { return "{\"brand\":\"" + android.os.Build.BRAND + "\",\"model\":\"" + android.os.Build.MODEL + "\",\"sdk\":" + android.os.Build.VERSION.SDK_INT + ",\"version\":\"" + android.os.Build.VERSION.RELEASE + "\"}"; }
     @JavascriptInterface public void toast(String m) { Toast.makeText(this, m, Toast.LENGTH_SHORT).show(); }
     @JavascriptInterface public void openUrl(String u) { try { startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(u))); } catch (Exception e) {} }
     @JavascriptInterface public void shareText(String t) { try { Intent i = new Intent(Intent.ACTION_SEND); i.setType("text/plain"); i.putExtra(Intent.EXTRA_TEXT, t); startActivity(Intent.createChooser(i, "Share")); } catch (Exception e) {} }
     @JavascriptInterface public void requestPermission(String p) { try { if (android.os.Build.VERSION.SDK_INT >= 23) { String perm; if ("camera".equals(p)) perm = android.Manifest.permission.CAMERA; else if ("storage".equals(p)) perm = android.Manifest.permission.WRITE_EXTERNAL_STORAGE; else if ("location".equals(p)) perm = android.Manifest.permission.ACCESS_FINE_LOCATION; else if ("notifications".equals(p)) perm = android.Manifest.permission.POST_NOTIFICATIONS; else return; if (checkSelfPermission(perm) != 0) requestPermissions(new String[]{perm}, 1001); } } catch (Exception e) {} }
+    @JavascriptInterface public String getConfig() {
+        return "{\"backendUrl\":\"https://all-arab-services.onrender.com\",\"apkDownloadUrl\":\"https://github.com/abuhoney/app-engine-studio/raw/main/apk/app-engine-studio.apk\",\"version\":\"9.0.2\"}";
+    }
 }
