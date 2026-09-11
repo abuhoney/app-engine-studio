@@ -11,14 +11,14 @@
         <div class="form-group"><label class="form-label">Personal Access Token</label><input class="form-input" id="ghToken" type="password" value="${token || ''}" placeholder="ghp_xxxx..." dir="ltr"></div>
         <div class="form-group"><label class="form-label">المستودع</label><input class="form-input" id="ghRepo" value="${repo}" dir="ltr"></div>
         <div style="display:flex;gap:8px;flex-wrap:wrap">
-          <button class="btn btn-primary" onclick="_saveGhConfig()">💾 حفظ</button>
-          <button class="btn btn-ghost" onclick="_testGhConn()">📡 اختبار الاتصال</button>
+          <button class="btn btn-primary" onclick="_saveGhConfig()">f4be حفظ</button>
+          <button class="btn btn-ghost" onclick="_testGhConn()">f50c اختبار الاتصال</button>
         </div>
       </div>
       <div class="card mt-16">
-        <div class="card-title">📦 إدارة الإصدارات</div>
+        <div class="card-title">f4e6 إدارة الإصدارات</div>
         <p class="text-sm text-muted" style="margin-bottom:12px">رفع APK كمبدأ GitHub Release</p>
-        <button class="btn btn-success" onclick="_createRelease()">🚀 إنشاء Release</button>
+        <button class="btn btn-success" onclick="_createRelease()">f680 إنشاء Release</button>
       </div>
     </div>`;
   });
@@ -42,6 +42,6 @@
   };
 
   window._createRelease = function() {
-    BardomApp.showToast('🎙️ هذه الوظيفة تعمل من خلال APK على الجهاز', 'warning');
+    BardomApp.showToast('f399️ هذه الوظيفة تعمل من خلال APK على الجهاز', 'warning');
   };
 })();

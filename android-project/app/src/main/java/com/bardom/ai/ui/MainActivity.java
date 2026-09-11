@@ -1,188 +1,66 @@
 package com.bardom.ai.ui;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-import android.webkit.*;
+import android.view.WindowManager;
+import android.webkit.JavascriptInterface;
+import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.FrameLayout;
 import android.widget.Toast;
-import java.io.*;
-import org.json.JSONObject;
+import java.io.File;
+import java.io.FileOutputStream;
 
-/**
- * النشاط الرئيسي - قشرة WebView تحمل لوحة التحكم
- * جميع الوظائف في ملفات dashboard/ — هذا الملف لا يتغير
- */
 public class MainActivity extends Activity {
-
     private WebView webView;
-    private static final String HOME_URL = "file:///android_asset/webapp/index.html";
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    private File getDir() { File d = getExternalFilesDir(null); return d != null ? d : getFilesDir(); }
 
-        // إعداد WebView
+    protected void onCreate(Bundle b) {
+        super.onCreate(b);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         webView = new WebView(this);
-        WebSettings settings = webView.getSettings();
-        settings.setJavaScriptEnabled(true);
-        settings.setDomStorageEnabled(true);
-        settings.setAllowFileAccess(true);
-        settings.setAllowContentAccess(true);
-        settings.setDatabaseEnabled(true);
-        settings.setCacheMode(WebSettings.LOAD_DEFAULT);
-        settings.setSupportZoom(false);
-        settings.setUseWideViewPort(true);
-        settings.setLoadWithOverviewMode(true);
-        settings.setMediaPlaybackRequiresUserGesture(false);
-
-        // ربط JavaScript Bridge
-        webView.addJavascriptInterface(new AndroidBridge(), "AndroidBridge");
-
-        // معالج أخطاء التحميل
-        webView.setWebViewClient(new WebViewClient() {
-            @Override
-            public void onReceivedError(WebView view, int code, String desc, String url) {
-                // محاولة تحميل من التخزين الداخلي
-            }
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                view.loadUrl(url);
-                return true;
-            }
-        });
-
-        setContentView(webView);
-        webView.loadUrl(HOME_URL);
+        WebSettings s = webView.getSettings();
+        s.setJavaScriptEnabled(true);
+        s.setDomStorageEnabled(true);
+        s.setAllowFileAccess(true);
+        s.setAllowContentAccess(true);
+        s.setDatabaseEnabled(true);
+        s.setCacheMode(WebSettings.LOAD_DEFAULT);
+        s.setLoadWithOverviewMode(true);
+        s.setUseWideViewPort(true);
+        webView.setWebViewClient(new WebViewClient());
+        webView.setWebChromeClient(new WebChromeClient());
+        webView.addJavascriptInterface(this, "AndroidBridge");
+        FrameLayout root = new FrameLayout(this);
+        root.addView(webView, new FrameLayout.LayoutParams(-1, -1));
+        setContentView(root);
+        webView.loadUrl("file:///android_asset/webapp/index.html");
     }
 
-    @Override
     public void onBackPressed() {
-        if (webView.canGoBack()) webView.goBack();
+        if (webView != null && webView.canGoBack()) webView.goBack();
         else super.onBackPressed();
     }
 
-    @Override
-    protected void onDestroy() {
-        webView.destroy();
-        super.onDestroy();
-    }
-
-    /**
-     * جسر Android-JavaScript
-     * يُعرض لوظائف JavaScript كـ window.AndroidBridge
-     * لإضافة وظيفة جديدة: أضف طريقة هنا مع @JavascriptInterface
-     * لا حاجة لإعادة بناء APK لو تم تنفيذها في JavaScript
-     */
-    public class AndroidBridge {
-
-        @JavascriptInterface
-        public String getPlatform() { return "android"; }
-
-        @JavascriptInterface
-        public String getVersion() { return "1.0.0"; }
-
-        @JavascriptInterface
-        public String getFilesDir() {
-            java.io.File dir = getExternalFilesDir(null);
-            return dir != null ? dir.getAbsolutePath() : "";
-        }
-
-        @JavascriptInterface
-        public String readFile(String path) {
-            try {
-                File f = new File(getExternalFilesDir(null), path);
-                if (!f.exists()) return "";
-                BufferedReader r = new BufferedReader(new FileReader(f));
-                StringBuilder sb = new StringBuilder();
-                String line;
-                while ((line = r.readLine()) != null) sb.append(line).append("\n");
-                r.close();
-                return sb.toString();
-            } catch (Exception e) { return ""; }
-        }
-
-        @JavascriptInterface
-        public boolean saveFile(String name, String content) {
-            try {
-                File dir = getExternalFilesDir(null);
-                if (dir == null) return false;
-                File f = new File(dir, name);
-                FileWriter w = new FileWriter(f);
-                w.write(content);
-                w.close();
-                return true;
-            } catch (Exception e) { return false; }
-        }
-
-        @JavascriptInterface
-        public String listFiles(String dir) {
-            try {
-                File d = new File(getExternalFilesDir(null), dir);
-                if (!d.exists() || !d.isDirectory()) return "[]";
-                File[] files = d.listFiles();
-                if (files == null) return "[]";
-                StringBuilder sb = new StringBuilder("[");
-                for (File f : files) {
-                    if (sb.length() > 1) sb.append(",");
-                    sb.append("{\"name\":\"").append(f.getName()).append("\",\"isDir\":").append(f.isDirectory()).append("}");
-                }
-                sb.append("]");
-                return sb.toString();
-            } catch (Exception e) { return "[]"; }
-        }
-
-        @JavascriptInterface
-        public boolean deleteFile(String path) {
-            File f = new File(getExternalFilesDir(null), path);
-            return f.delete();
-        }
-
-        @JavascriptInterface
-        public boolean existsFile(String path) {
-            File f = new File(getExternalFilesDir(null), path);
-            return f.exists();
-        }
-
-        @JavascriptInterface
-        public void showToast(String msg) {
-            runOnUiThread(() -> Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show());
-        }
-
-        @JavascriptInterface
-        public void installApk(String path) {
-            runOnUiThread(() -> {
-                try {
-                    java.io.File apkFile = new java.io.File(getExternalFilesDir(null), path);
-                    if (!apkFile.exists()) {
-                        Toast.makeText(MainActivity.this, "الملف غير موجود", Toast.LENGTH_SHORT).show();
-                        return;
-                    }
-                    android.content.Intent intent = new android.content.Intent(android.content.Intent.ACTION_VIEW);
-                    intent.setDataAndType(android.net.Uri.fromFile(apkFile), "application/vnd.android.package-archive");
-                    intent.addFlags(android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION | android.content.Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(intent);
-                } catch (Exception e) {
-                    Toast.makeText(MainActivity.this, "فشل التثبيت: " + e.getMessage(), Toast.LENGTH_LONG).show();
-                }
-            });
-        }
-
-        @JavascriptInterface
-        public long getFreeSpace() {
-            java.io.File dir = getExternalFilesDir(null);
-            return dir != null ? dir.getFreeSpace() : 0;
-        }
-
-        @JavascriptInterface
-        public String getDeviceInfo() {
-            try {
-                JSONObject info = new JSONObject();
-                info.put("brand", android.os.Build.BRAND);
-                info.put("model", android.os.Build.MODEL);
-                info.put("sdk", android.os.Build.VERSION.SDK_INT);
-                info.put("version", android.os.Build.VERSION.RELEASE);
-                return info.toString();
-            } catch (Exception e) { return "{}"; }
-        }
-    }
+    @JavascriptInterface public String getPlatform() { return "android"; }
+    @JavascriptInterface public String getVersion() { return "9.0.0"; }
+    @JavascriptInterface public String getFilesDirPath() { return getDir().getAbsolutePath(); }
+    @JavascriptInterface public boolean saveFile(String name, String content) { try { File d = getDir(); if (!d.exists()) d.mkdirs(); FileOutputStream w = new FileOutputStream(new File(d, name)); w.write(content.getBytes("UTF-8")); w.close(); return true; } catch (Exception e) { return false; } }
+    @JavascriptInterface public String readFile(String path) { try { File f = new File(getDir(), path); if (!f.exists()) return ""; return new String(java.nio.file.Files.readAllBytes(f.toPath()), "UTF-8"); } catch (Exception e) { return ""; } }
+    @JavascriptInterface public String listFiles(String dir) { try { File d = new File(getDir(), dir); if (!d.exists()) return "[]"; File[] files = d.listFiles(); StringBuilder sb = new StringBuilder("["); for (int i = 0; files != null && i < files.length; i++) { if (i > 0) sb.append(","); sb.append("{\"name\":\"").append(files[i].getName()).append("\",\"isDir\":").append(files[i].isDirectory()).append("}"); } sb.append("]"); return sb.toString(); } catch (Exception e) { return "[]"; } }
+    @JavascriptInterface public boolean deleteFile(String path) { try { return new File(getDir(), path).delete(); } catch (Exception e) { return false; } }
+    @JavascriptInterface public boolean existsFile(String path) { try { return new File(getDir(), path).exists(); } catch (Exception e) { return false; } }
+    @JavascriptInterface public void showToast(String msg) { Toast.makeText(this, msg, Toast.LENGTH_SHORT).show(); }
+    @JavascriptInterface public void installApk(String path) { try { File apk = new File(getDir(), path); if (!apk.exists()) { Toast.makeText(this, "File not found", Toast.LENGTH_SHORT).show(); return; } Intent intent = new Intent(Intent.ACTION_VIEW); intent.setDataAndType(Uri.fromFile(apk), "application/vnd.android.package-archive"); intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK); startActivity(intent); } catch (Exception e) { Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_LONG).show(); } }
+    @JavascriptInterface public long getFreeSpace() { return getDir().getFreeSpace(); }
+    @JavascriptInterface public String getDeviceInfo() { return "{\"brand\":\"" + android.os.Build.BRAND + "\",\"model\":\"" + android.os.Build.MODEL + "\",\"sdk\":" + android.os.Build.VERSION.SDK_INT + ",\"version\":\"" + android.os.Build.VERSION.RELEASE + "\"}"; }
+    @JavascriptInterface public void toast(String m) { Toast.makeText(this, m, Toast.LENGTH_SHORT).show(); }
+    @JavascriptInterface public void openUrl(String u) { try { startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(u))); } catch (Exception e) {} }
+    @JavascriptInterface public void shareText(String t) { try { Intent i = new Intent(Intent.ACTION_SEND); i.setType("text/plain"); i.putExtra(Intent.EXTRA_TEXT, t); startActivity(Intent.createChooser(i, "Share")); } catch (Exception e) {} }
+    @JavascriptInterface public void requestPermission(String p) { try { if (android.os.Build.VERSION.SDK_INT >= 23) { String perm; if ("camera".equals(p)) perm = android.Manifest.permission.CAMERA; else if ("storage".equals(p)) perm = android.Manifest.permission.WRITE_EXTERNAL_STORAGE; else if ("location".equals(p)) perm = android.Manifest.permission.ACCESS_FINE_LOCATION; else if ("notifications".equals(p)) perm = android.Manifest.permission.POST_NOTIFICATIONS; else return; if (checkSelfPermission(perm) != 0) requestPermissions(new String[]{perm}, 1001); } } catch (Exception e) {} }
 }
