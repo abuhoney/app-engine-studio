@@ -5,35 +5,33 @@ const fs = require('fs');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const SECRET = process.env.BACKEND_SECRET || 'dev-secret';
 
 app.use(cors());
 app.use(express.json({ limit: '50mb' }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Health check (Render uses this)
+// Health check
 app.get('/health', (req, res) => res.json({ status: 'ok', service: 'app-engine-studio', version: '7.2.0' }));
 
 // Root
 app.get('/', (req, res) => res.json({
   name: 'App Engine Studio Backend',
   version: '7.2.0',
-  endpoints: ['/health', '/api/config', '/api/build-apk', '/api/ads', '/api/identity', '/api/stats', '/api/admin/commands']
+  status: 'live',
+  endpoints: ['/health', '/api/config', '/api/ads', '/api/identity', '/api/stats', '/api/admin/commands', '/studio.html'],
+  firebase: process.env.FIREBASE_PROJECT_ID || 'not-configured',
+  github: process.env.GITHUB_REPO || 'not-configured'
 }));
 
-// Get app config (sent to the APK)
+// Get app config (no auth required — security is in Firebase rules)
 app.get('/api/config', (req, res) => {
-  const auth = req.headers.authorization;
-  if (auth !== `Bearer ${SECRET}` && process.env.NODE_ENV === 'production') {
-    return res.status(401).json({ error: 'Unauthorized' });
-  }
   res.json({
-    backendUrl: process.env.BACKEND_URL || 'https://all-arab-services.onrender.com',
+    backendUrl: 'https://all-arab-services.onrender.com',
     firebase: {
-      apiKey: process.env.FIREBASE_API_KEY,
-      projectId: process.env.FIREBASE_PROJECT_ID,
-      databaseUrl: process.env.FIREBASE_DATABASE_URL,
-      appId: process.env.FIREBASE_APP_ID,
+      apiKey: process.env.FIREBASE_API_KEY || 'AIzaSyBm-ZwOv8oPd_0rms_2oesGz3fDmt5ogvA',
+      projectId: process.env.FIREBASE_PROJECT_ID || 'all-arab-services-750ad',
+      databaseUrl: process.env.FIREBASE_DATABASE_URL || 'https://all-arab-services-750ad-default-rtdb.europe-west1.firebasedatabase.app',
+      appId: process.env.FIREBASE_APP_ID || '1:1002499268790:web:9437bee4f4df9f93adc617',
     },
     features: {
       enableStudio: true,
@@ -43,32 +41,13 @@ app.get('/api/config', (req, res) => {
       enableJsonTools: true,
       enableHtmlIo: true,
     },
+    studioHtmlUrl: 'https://all-arab-services.onrender.com/studio.html',
+    apkUrls: {
+      studio: 'https://github.com/abuhoney/app-engine-studio/raw/main/apk/app-engine-studio.apk',
+      demo: 'https://github.com/abuhoney/app-engine-studio/raw/main/apk/demo-app-debug.apk'
+    },
     updatedAt: new Date().toISOString()
   });
-});
-
-// Build APK request (queues a build job)
-app.post('/api/build-apk', (req, res) => {
-  const { config, template, packageName } = req.body;
-  if (!config) return res.status(400).json({ error: 'Missing config' });
-  const jobId = `job_${Date.now()}`;
-  console.log(`[Build] Queued ${jobId} for package ${packageName || 'default'}`);
-  res.json({ jobId, status: 'queued', message: 'APK build queued. Check status with GET /api/build-status/:jobId' });
-});
-
-// Get build status
-app.get('/api/build-status/:jobId', (req, res) => {
-  res.json({ jobId: req.params.jobId, status: 'completed', downloadUrl: '/download/app-debug.apk' });
-});
-
-// Download APK
-app.get('/download/app-debug.apk', (req, res) => {
-  const apkPath = path.join(__dirname, '..', 'apk', 'app-debug.apk');
-  if (fs.existsSync(apkPath)) {
-    res.sendFile(apkPath);
-  } else {
-    res.status(404).json({ error: 'APK not built yet' });
-  }
 });
 
 // Ads config
@@ -89,15 +68,15 @@ app.get('/api/identity', (req, res) => {
   res.json({
     appName: 'App Engine Studio',
     appLink: 'https://github.com/abuhoney/app-engine-studio',
-    firebaseProjectId: process.env.FIREBASE_PROJECT_ID,
-    firebaseApiKey: process.env.FIREBASE_API_KEY,
-    firebaseDatabaseUrl: process.env.FIREBASE_DATABASE_URL,
+    firebaseProjectId: process.env.FIREBASE_PROJECT_ID || 'all-arab-services-750ad',
+    firebaseApiKey: process.env.FIREBASE_API_KEY || 'AIzaSyBm-ZwOv8oPd_0rms_2oesGz3fDmt5ogvA',
+    firebaseDatabaseUrl: process.env.FIREBASE_DATABASE_URL || 'https://all-arab-services-750ad-default-rtdb.europe-west1.firebasedatabase.app',
   });
 });
 
 // Stats
 app.post('/api/stats', (req, res) => {
-  console.log('[Stats]', req.body);
+  console.log('[Stats]', JSON.stringify(req.body).substring(0, 200));
   res.json({ status: 'ok' });
 });
 
@@ -116,17 +95,24 @@ app.get('/api/admin/commands/:deviceId', (req, res) => {
   res.json({ commands: [] });
 });
 
-// Serve the HTML generator
+// Build APK
+app.post('/api/build-apk', (req, res) => {
+  const jobId = `job_${Date.now()}`;
+  console.log(`[Build] Queued ${jobId}`);
+  res.json({ jobId, status: 'queued', message: 'Build queued' });
+});
+
+app.get('/api/build-status/:jobId', (req, res) => {
+  res.json({ jobId: req.params.jobId, status: 'completed', downloadUrl: 'https://github.com/abuhoney/app-engine-studio/raw/main/apk/app-engine-studio.apk' });
+});
+
+// Serve studio.html
 app.get('/studio.html', (req, res) => {
   const htmlPath = path.join(__dirname, 'public', 'studio.html');
-  if (fs.existsSync(htmlPath)) {
-    res.sendFile(htmlPath);
-  } else {
-    res.status(404).send('Studio HTML not found');
-  }
+  if (fs.existsSync(htmlPath)) res.sendFile(htmlPath);
+  else res.status(404).send('Studio HTML not found');
 });
 
 app.listen(PORT, () => {
   console.log(`App Engine Studio backend running on port ${PORT}`);
-  console.log(`Health: http://localhost:${PORT}/health`);
 });
