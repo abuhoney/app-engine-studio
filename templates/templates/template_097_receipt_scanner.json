@@ -1,0 +1,21 @@
+{
+  "id": "template_097",
+  "name": "Receipt Scanner",
+  "package": "app.bardom.receipts",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Scan and organize receipts",
+  "features": [
+    "Capture receipt photo",
+    "OCR text extraction",
+    "Extract amount and date",
+    "Categorize",
+    "Search receipts",
+    "Export as CSV",
+    "Multiple currencies",
+    "Tag for tax",
+    "Cloud backup",
+    "Statistics"
+  ]
+}

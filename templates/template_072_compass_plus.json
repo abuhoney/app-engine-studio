@@ -1,0 +1,21 @@
+{
+  "id": "template_072",
+  "name": "Compass Plus",
+  "package": "app.bardom.compass2",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Advanced compass with GPS",
+  "features": [
+    "Show heading",
+    "Show coordinates",
+    "Show altitude",
+    "Show speed",
+    "Mark waypoint",
+    "Navigate to waypoint",
+    "Sun position",
+    "Moon phase",
+    "Tide times",
+    "Share position"
+  ]
+}

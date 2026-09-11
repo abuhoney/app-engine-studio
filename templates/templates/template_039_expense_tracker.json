@@ -1,0 +1,21 @@
+{
+  "id": "template_039",
+  "name": "Expense Tracker",
+  "package": "app.bardom.expense",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Track personal expenses",
+  "features": [
+    "Add expense entry",
+    "Categorize expense",
+    "Edit entry",
+    "Delete entry",
+    "Monthly summary",
+    "Category breakdown chart",
+    "Budget limit alert",
+    "Export as CSV",
+    "Search entries",
+    "Recurring expenses"
+  ]
+}

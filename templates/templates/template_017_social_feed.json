@@ -1,0 +1,21 @@
+{
+  "id": "template_017",
+  "name": "Social Feed",
+  "package": "app.bardom.feed",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "A social media feed reader",
+  "features": [
+    "Display feed posts",
+    "Like a post",
+    "Comment on post",
+    "Share post",
+    "Follow user",
+    "Unfollow user",
+    "Profile page",
+    "Search users",
+    "Notifications",
+    "Dark mode"
+  ]
+}

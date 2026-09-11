@@ -1,0 +1,21 @@
+{
+  "id": "template_068",
+  "name": "Yoga Guide",
+  "package": "app.bardom.yoga",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Guided yoga sessions",
+  "features": [
+    "List of poses",
+    "Pose image and description",
+    "Session builder",
+    "Timer per pose",
+    "Difficulty levels",
+    "Progress tracking",
+    "Favorite poses",
+    "Custom sessions",
+    "Reminder notification",
+    "Statistics"
+  ]
+}

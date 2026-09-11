@@ -1,0 +1,21 @@
+{
+  "id": "template_064",
+  "name": "Meditation Timer",
+  "package": "app.bardom.meditate",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Guided meditation timer",
+  "features": [
+    "Set session duration",
+    "Start/pause timer",
+    "Ambient sound option",
+    "Interval bell",
+    "Daily reminder",
+    "Streak counter",
+    "Pre-set sessions 5/10/15/20 min",
+    "Background mode",
+    "Statistics",
+    "Custom interval"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "template_091",
+  "name": "Tip Calculator",
+  "package": "app.bardom.tip",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Calculate tip and split bill",
+  "features": [
+    "Enter bill amount",
+    "Set tip percentage",
+    "Split between people",
+    "Round up option",
+    "Custom tip percentage",
+    "Save calculation",
+    "Currency selector",
+    "Tax separate",
+    "History",
+    "Share result"
+  ]
+}

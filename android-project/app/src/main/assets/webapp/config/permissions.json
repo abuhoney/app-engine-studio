@@ -1,0 +1,20 @@
+{
+  "permissions": [
+    {"name": "INTERNET", "description": "الوصول للإنترنت", "keywords": ["internet", "شبكة", "ويب", "api", "http"]},
+    {"name": "CAMERA", "description": "الكاميرا", "keywords": ["camera", "كاميرا", "تصوير", "صورة", "photo"]},
+    {"name": "READ_EXTERNAL_STORAGE", "description": "قراءة الملفات", "keywords": ["file", "ملف", "قراءة", "storage", "gallery"]},
+    {"name": "WRITE_EXTERNAL_STORAGE", "description": "كتابة الملفات", "keywords": ["save", "حفظ", "كتابة", "download", "export"]},
+    {"name": "RECORD_AUDIO", "description": "تسجيل الصوت", "keywords": ["audio", "صوت", "ميكروفون", "record", "تسجيل"]},
+    {"name": "ACCESS_FINE_LOCATION", "description": "الموقع الدقيق", "keywords": ["location", "موقع", "gps", "خريطة", "map"]},
+    {"name": "ACCESS_COARSE_LOCATION", "description": "الموقع التقريبي", "keywords": ["location", "موقع"]},
+    {"name": "BLUETOOTH", "description": "البلوتوث", "keywords": ["bluetooth", "بلوتوث"]},
+    {"name": "VIBRATE", "description": "الاهتزاز", "keywords": ["vibrate", "اهتزاز", "تنبيه"]},
+    {"name": "FLASHLIGHT", "description": "الضوء", "keywords": ["flash", "torch", "ضوء", "فلاش"]},
+    {"name": "WAKE_LOCK", "description": "إبقاء الشاشة", "keywords": ["wake", "screen", "شاشة"]},
+    {"name": "SET_ALARM", "description": "المنبه", "keywords": ["alarm", "منبه", "تنبيه", "timer"]},
+    {"name": "SEND_SMS", "description": "إرسال رسائل", "keywords": ["sms", "رسالة", "نص"]},
+    {"name": "CALL_PHONE", "description": "الاتصال", "keywords": ["call", "اتصال", "هاتف"]},
+    {"name": "READ_CONTACTS", "description": "قراءة جهات الاتصال", "keywords": ["contacts", "جهات اتصال"]},
+    {"name": "NFC", "description": "اتصال قريب", "keywords": ["nfc"]}
+  ]
+}

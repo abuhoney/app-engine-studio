@@ -1,0 +1,21 @@
+{
+  "id": "template_089",
+  "name": "Pet Feeder",
+  "package": "app.bardom.feeder",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Control automatic pet feeder",
+  "features": [
+    "Feed now button",
+    "Set feeding schedule",
+    "Portion size",
+    "Food level indicator",
+    "Feeding history",
+    "Photo of pet",
+    "Voice message playback",
+    "Multiple pets",
+    "Low food alert",
+    "Manual override"
+  ]
+}

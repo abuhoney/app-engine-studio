@@ -1,0 +1,21 @@
+{
+  "id": "template_100",
+  "name": "Tax Estimator",
+  "package": "app.bardom.tax",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Estimate annual taxes",
+  "features": [
+    "Enter income",
+    "Enter deductions",
+    "Select filing status",
+    "Calculate estimated tax",
+    "Show tax bracket breakdown",
+    "Compare scenarios",
+    "Save calculation",
+    "Refund estimator",
+    "Quarterly payment reminder",
+    "Export report"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "template_095",
+  "name": "Invoice Maker",
+  "package": "app.bardom.invoice",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Create and send invoices",
+  "features": [
+    "Add client",
+    "Add line items",
+    "Set tax rate",
+    "Generate PDF",
+    "Send via email",
+    "Track payment status",
+    "Invoice history",
+    "Recurring invoices",
+    "Custom branding",
+    "Export as CSV"
+  ]
+}

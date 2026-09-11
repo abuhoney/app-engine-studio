@@ -1,0 +1,21 @@
+{
+  "id": "template_059",
+  "name": "Word Search",
+  "package": "app.bardom.wordsearch",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Find hidden words in a grid",
+  "features": [
+    "10x10 letter grid",
+    "Word list display",
+    "Drag to select",
+    "Validate selection",
+    "Mark found words",
+    "Timer",
+    "Difficulty levels",
+    "Hint button",
+    "Category themes",
+    "Reset puzzle"
+  ]
+}

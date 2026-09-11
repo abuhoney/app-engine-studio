@@ -1,0 +1,21 @@
+{
+  "id": "template_018",
+  "name": "Messenger",
+  "package": "app.bardom.msg",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Instant messaging with notifications",
+  "features": [
+    "Send message",
+    "Receive message",
+    "Push notification",
+    "Message status: sent/delivered/read",
+    "Media attachments",
+    "Voice messages",
+    "Group messaging",
+    "Block user",
+    "Mute conversation",
+    "Archive conversation"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "template_030",
+  "name": "Metronome",
+  "package": "app.bardom.metronome",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "A musical metronome",
+  "features": [
+    "Set BPM",
+    "Start/stop metronome",
+    "Time signature 2/4/3/4/4/4",
+    "Visual indicator",
+    "Vibrate on beat",
+    "Tap to set BPM",
+    "Save presets",
+    "Subdivisions",
+    "Accent first beat",
+    "Background mode"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "template_067",
+  "name": "Calorie Counter",
+  "package": "app.bardom.calories",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Track daily calorie intake",
+  "features": [
+    "Search food database",
+    "Add food to log",
+    "Calculate total calories",
+    "Daily goal progress",
+    "Macronutrient breakdown",
+    "Water tracking",
+    "Exercise calorie burn",
+    "Weekly summary",
+    "Custom food entry",
+    "Barcode scan"
+  ]
+}

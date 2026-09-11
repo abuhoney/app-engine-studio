@@ -1,0 +1,21 @@
+{
+  "id": "template_046",
+  "name": "Periodic Table",
+  "package": "app.bardom.chem",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Interactive periodic table",
+  "features": [
+    "Show periodic table grid",
+    "Tap element for details",
+    "Atomic mass display",
+    "Electron configuration",
+    "Search by symbol",
+    "Filter by category",
+    "Element properties",
+    "Bohr model view",
+    "Quiz mode",
+    "Favorites"
+  ]
+}

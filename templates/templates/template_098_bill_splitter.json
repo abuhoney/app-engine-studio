@@ -1,0 +1,21 @@
+{
+  "id": "template_098",
+  "name": "Bill Splitter",
+  "package": "app.bardom.billsplit",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Split bills among friends",
+  "features": [
+    "Add participants",
+    "Add expense",
+    "Assign payer",
+    "Assign participants per expense",
+    "Calculate who owes whom",
+    "Settle up tracker",
+    "Multiple events",
+    "Export settlement plan",
+    "Currency support",
+    "Photo of receipt"
+  ]
+}

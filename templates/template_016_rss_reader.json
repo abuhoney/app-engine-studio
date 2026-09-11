@@ -1,0 +1,21 @@
+{
+  "id": "template_016",
+  "name": "RSS Reader",
+  "package": "app.bardom.rss",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Subscribe to RSS feeds",
+  "features": [
+    "Add RSS feed URL",
+    "List articles from feed",
+    "Open article in browser",
+    "Mark as read",
+    "Mark as favorite",
+    "Refresh feeds",
+    "Delete feed",
+    "Search articles",
+    "Offline reading cache",
+    "Notification on new article"
+  ]
+}

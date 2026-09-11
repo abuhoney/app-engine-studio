@@ -1,0 +1,21 @@
+{
+  "id": "template_096",
+  "name": "Crypto Tracker",
+  "package": "app.bardom.crypto",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Track cryptocurrency prices",
+  "features": [
+    "List of top coins",
+    "Search by name",
+    "Show price chart",
+    "Set price alert",
+    "Portfolio tracker",
+    "Add transaction",
+    "Profit/loss calculation",
+    "News feed",
+    "Multiple currencies",
+    "Export data"
+  ]
+}

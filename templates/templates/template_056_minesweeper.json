@@ -1,0 +1,21 @@
+{
+  "id": "template_056",
+  "name": "Minesweeper",
+  "package": "app.bardom.mines",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Classic minesweeper",
+  "features": [
+    "8x8 grid",
+    "Tap to reveal",
+    "Long-press to flag",
+    "Number of adjacent mines",
+    "Win/lose detection",
+    "Timer",
+    "Mine counter",
+    "Reset game",
+    "Difficulty levels",
+    "First-tap safe"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "template_080",
+  "name": "Geocaching",
+  "package": "app.bardom.geo",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Geocaching treasure hunt",
+  "features": [
+    "List nearby caches",
+    "Show cache on map",
+    "Navigate to cache",
+    "Log find",
+    "Add description",
+    "Take photo at cache",
+    "Save offline",
+    "Trackable items",
+    "Difficulty rating",
+    "Share find"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "template_062",
+  "name": "Water Reminder",
+  "package": "app.bardom.water",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Remind user to drink water",
+  "features": [
+    "Daily goal setting",
+    "Log water intake",
+    "Reminder notifications",
+    "Progress visualization",
+    "Custom cup size",
+    "History by day",
+    "Streak counter",
+    "Achievement badges",
+    "Adjustable reminder interval",
+    "Export history"
+  ]
+}

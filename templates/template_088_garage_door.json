@@ -1,0 +1,21 @@
+{
+  "id": "template_088",
+  "name": "Garage Door",
+  "package": "app.bardom.garage",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Control garage door opener",
+  "features": [
+    "Show door status",
+    "Open/close toggle",
+    "Schedule close",
+    "Notification on movement",
+    "Multiple doors",
+    "Share access",
+    "Activity log",
+    "Geo-fence auto-open",
+    "Pin code access",
+    "Camera view"
+  ]
+}

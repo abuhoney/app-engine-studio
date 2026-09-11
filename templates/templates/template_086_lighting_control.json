@@ -1,0 +1,21 @@
+{
+  "id": "template_086",
+  "name": "Lighting Control",
+  "package": "app.bardom.lights",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Control smart lights",
+  "features": [
+    "List lights",
+    "Toggle on/off",
+    "Brightness slider",
+    "Color picker",
+    "Scene presets",
+    "Schedules",
+    "Group control",
+    "Music sync",
+    "Wake-up routine",
+    "Sunset routine"
+  ]
+}

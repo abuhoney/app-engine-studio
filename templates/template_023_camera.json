@@ -1,0 +1,21 @@
+{
+  "id": "template_023",
+  "name": "Camera",
+  "package": "app.bardom.camera",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Take photos with the camera",
+  "features": [
+    "Open camera preview",
+    "Capture photo",
+    "Switch front/back camera",
+    "Flash toggle",
+    "Timer 3/10 seconds",
+    "Grid overlay",
+    "Save to gallery",
+    "Apply filter",
+    "Burst mode",
+    "Record video"
+  ]
+}

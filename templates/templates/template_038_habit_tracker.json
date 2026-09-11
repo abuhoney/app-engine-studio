@@ -1,0 +1,21 @@
+{
+  "id": "template_038",
+  "name": "Habit Tracker",
+  "package": "app.bardom.habits",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Track daily habits",
+  "features": [
+    "Add new habit",
+    "Mark habit done today",
+    "Streak counter",
+    "Weekly view",
+    "Monthly view",
+    "Statistics chart",
+    "Reminder notifications",
+    "Edit habit",
+    "Archive habit",
+    "Export data as CSV"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "template_083",
+  "name": "Thermostat",
+  "package": "app.bardom.thermo",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Control home thermostat",
+  "features": [
+    "Show current temperature",
+    "Set target temperature",
+    "Schedule program",
+    "Mode heat/cool/auto",
+    "Energy report",
+    "Away mode",
+    "Fan control",
+    "Humidity display",
+    "Multiple zones",
+    "Notifications"
+  ]
+}

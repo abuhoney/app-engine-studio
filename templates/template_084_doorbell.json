@@ -1,0 +1,21 @@
+{
+  "id": "template_084",
+  "name": "Doorbell",
+  "package": "app.bardom.doorbell",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Smart doorbell viewer",
+  "features": [
+    "Live video feed",
+    "Two-way audio",
+    "Motion detection alert",
+    "Snapshot",
+    "Record video",
+    "Night vision toggle",
+    "Doorbell history",
+    "Silent mode",
+    "Custom ringtone",
+    "Multi-camera"
+  ]
+}

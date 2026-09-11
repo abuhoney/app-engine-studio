@@ -1,0 +1,21 @@
+{
+  "id": "template_081",
+  "name": "Smart Home",
+  "package": "app.bardom.smarthome",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Control smart home devices",
+  "features": [
+    "List devices",
+    "Toggle device on/off",
+    "Adjust brightness",
+    "Set color",
+    "Group devices by room",
+    "Schedule on/off",
+    "Scene presets",
+    "Voice control",
+    "Energy usage",
+    "Notifications"
+  ]
+}

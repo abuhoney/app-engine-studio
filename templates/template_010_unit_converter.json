@@ -1,0 +1,21 @@
+{
+  "id": "template_010",
+  "name": "Unit Converter",
+  "package": "app.bardom.units",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Convert between common units",
+  "features": [
+    "Length: m/km/ft/mile",
+    "Mass: kg/g/lb/oz",
+    "Temperature: C/F/K",
+    "Volume: L/mL/gal",
+    "Speed: km/h/mph/m/s",
+    "Area: m²/ft²/acre",
+    "Pressure: Pa/bar/psi",
+    "Energy: J/cal/kWh",
+    "Time: s/min/h/day",
+    "Save favorite conversions"
+  ]
+}

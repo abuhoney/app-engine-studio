@@ -1,0 +1,21 @@
+{
+  "id": "template_087",
+  "name": "Sprinkler",
+  "package": "app.bardom.sprinkler",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Control garden sprinklers",
+  "features": [
+    "List zones",
+    "Start zone manually",
+    "Schedule watering",
+    "Rain skip",
+    "Water usage report",
+    "Pause all",
+    "Zone runtime",
+    "Weather integration",
+    "Notifications",
+    "Multiple programs"
+  ]
+}

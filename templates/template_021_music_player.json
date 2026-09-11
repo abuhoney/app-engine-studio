@@ -1,0 +1,21 @@
+{
+  "id": "template_021",
+  "name": "Music Player",
+  "package": "app.bardom.music",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Play local music files",
+  "features": [
+    "List songs on device",
+    "Play selected song",
+    "Pause/playback",
+    "Next/previous track",
+    "Shuffle mode",
+    "Repeat mode",
+    "Show progress bar",
+    "Seek to position",
+    "Create playlist",
+    "Show album art"
+  ]
+}

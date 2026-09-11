@@ -1,0 +1,21 @@
+{
+  "id": "template_028",
+  "name": "Soundboard",
+  "package": "app.bardom.soundboard",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Play sound effects on tap",
+  "features": [
+    "Grid of sound buttons",
+    "Play sound on tap",
+    "Long-press to set as ringtone",
+    "Categories tab",
+    "Search sounds",
+    "Favorite sounds",
+    "Volume slider",
+    "Loop mode",
+    "Stop all sounds",
+    "Custom sound upload"
+  ]
+}

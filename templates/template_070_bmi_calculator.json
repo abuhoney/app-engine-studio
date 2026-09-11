@@ -1,0 +1,21 @@
+{
+  "id": "template_070",
+  "name": "BMI Calculator",
+  "package": "app.bardom.bmi",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Calculate Body Mass Index",
+  "features": [
+    "Input height",
+    "Input weight",
+    "Calculate BMI",
+    "Show category",
+    "Metric/imperial toggle",
+    "Save measurements",
+    "History chart",
+    "Ideal weight range",
+    "Tips per category",
+    "Share result"
+  ]
+}

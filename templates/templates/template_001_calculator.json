@@ -1,0 +1,21 @@
+{
+  "id": "template_001",
+  "name": "Calculator",
+  "package": "app.bardom.calc",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "A simple calculator with basic arithmetic operations",
+  "features": [
+    "Display numeric keypad 0-9",
+    "Add two numbers",
+    "Subtract two numbers",
+    "Multiply two numbers",
+    "Divide two numbers with divide-by-zero guard",
+    "Clear button to reset display",
+    "Backspace button to delete last digit",
+    "Decimal point support",
+    "Percentage calculation",
+    "Memory store/recall"
+  ]
+}

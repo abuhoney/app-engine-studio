@@ -1,0 +1,21 @@
+{
+  "id": "template_051",
+  "name": "Tic-Tac-Toe",
+  "package": "app.bardom.tictactoe",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Classic tic-tac-toe game",
+  "features": [
+    "3x3 grid UI",
+    "Two-player mode",
+    "Single-player vs AI",
+    "Detect winner",
+    "Detect draw",
+    "Reset board",
+    "Score tracking",
+    "Sound effects",
+    "Choose symbol X/O",
+    "AI difficulty"
+  ]
+}

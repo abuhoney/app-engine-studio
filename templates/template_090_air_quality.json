@@ -1,0 +1,21 @@
+{
+  "id": "template_090",
+  "name": "Air Quality",
+  "package": "app.bardom.air",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Monitor air quality sensors",
+  "features": [
+    "Show PM2.5 reading",
+    "Show CO2 reading",
+    "Show humidity",
+    "Show temperature",
+    "Historical chart",
+    "Alert thresholds",
+    "Recommendations",
+    "Multiple rooms",
+    "Export data",
+    "Notification on high pollution"
+  ]
+}

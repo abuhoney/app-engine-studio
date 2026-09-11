@@ -1,0 +1,21 @@
+{
+  "id": "template_093",
+  "name": "Budget Planner",
+  "package": "app.bardom.budget",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Plan monthly budget",
+  "features": [
+    "Set income",
+    "Add expense categories",
+    "Set budget per category",
+    "Track spending",
+    "Show remaining budget",
+    "Alert on overspend",
+    "Monthly summary",
+    "Yearly chart",
+    "Savings goals",
+    "Export as CSV"
+  ]
+}

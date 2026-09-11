@@ -1,0 +1,21 @@
+{
+  "id": "template_007",
+  "name": "Timer",
+  "package": "app.bardom.timer",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "A countdown timer with multiple presets",
+  "features": [
+    "Set custom duration",
+    "Start/pause timer",
+    "Preset 1/3/5/10 minute buttons",
+    "Notification when finished",
+    "Sound alarm",
+    "Vibrate alarm",
+    "Continue in background",
+    "Add 1 minute extension",
+    "Multiple parallel timers",
+    "Save recent timers"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "template_065",
+  "name": "Sleep Tracker",
+  "package": "app.bardom.sleep",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Track sleep patterns",
+  "features": [
+    "Set bedtime",
+    "Set wake time",
+    "Track sleep duration",
+    "Sleep quality rating",
+    "Weekly chart",
+    "Wake-up alarm",
+    "Sleep sounds",
+    "Dream journal",
+    "Smart wake window",
+    "Export data"
+  ]
+}

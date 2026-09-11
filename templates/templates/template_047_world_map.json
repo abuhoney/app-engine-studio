@@ -1,0 +1,21 @@
+{
+  "id": "template_047",
+  "name": "World Map",
+  "package": "app.bardom.map",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Browse an interactive world map",
+  "features": [
+    "Show world map",
+    "Tap country for info",
+    "Search country",
+    "Show capital city",
+    "Show flag",
+    "Show population",
+    "Show area",
+    "Show currency",
+    "Quiz mode",
+    "Favorites"
+  ]
+}

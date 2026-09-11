@@ -1,0 +1,21 @@
+{
+  "id": "template_060",
+  "name": "Hangman",
+  "package": "app.bardom.hangman",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Classic word-guessing game",
+  "features": [
+    "Random word selection",
+    "Display blanks",
+    "Letter input",
+    "Wrong guess counter",
+    "Hangman drawing",
+    "Win/lose detection",
+    "Hint button",
+    "Category selection",
+    "Score tracking",
+    "New game"
+  ]
+}

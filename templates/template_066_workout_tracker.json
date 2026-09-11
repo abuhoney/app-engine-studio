@@ -1,0 +1,21 @@
+{
+  "id": "template_066",
+  "name": "Workout Tracker",
+  "package": "app.bardom.workout",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Log workouts and exercises",
+  "features": [
+    "Add workout session",
+    "List exercises",
+    "Set reps and sets",
+    "Track weight lifted",
+    "Rest timer",
+    "Workout history",
+    "Personal records",
+    "Body weight tracker",
+    "Statistics",
+    "Export as CSV"
+  ]
+}

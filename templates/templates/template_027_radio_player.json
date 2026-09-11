@@ -1,0 +1,21 @@
+{
+  "id": "template_027",
+  "name": "Radio Player",
+  "package": "app.bardom.radio",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Stream internet radio stations",
+  "features": [
+    "List of stations",
+    "Play station",
+    "Pause stream",
+    "Volume control",
+    "Favorite stations",
+    "Search stations",
+    "Now playing info",
+    "Sleep timer",
+    "Record stream",
+    "Share station"
+  ]
+}

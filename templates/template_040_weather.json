@@ -1,0 +1,21 @@
+{
+  "id": "template_040",
+  "name": "Weather",
+  "package": "app.bardom.weather",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Show current weather and forecast",
+  "features": [
+    "Show current temperature",
+    "Show humidity and wind",
+    "5-day forecast",
+    "Hourly forecast",
+    "Search by city",
+    "Use current location",
+    "Weather alerts",
+    "Sunrise/sunset times",
+    "Refresh data",
+    "Switch units C/F"
+  ]
+}

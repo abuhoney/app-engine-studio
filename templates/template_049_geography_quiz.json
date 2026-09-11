@@ -1,0 +1,21 @@
+{
+  "id": "template_049",
+  "name": "Geography Quiz",
+  "package": "app.bardom.geoquiz",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Test geography knowledge",
+  "features": [
+    "Capital city questions",
+    "Flag identification",
+    "Continent questions",
+    "River and mountain questions",
+    "Score tracking",
+    "Timer per question",
+    "Difficulty levels",
+    "Review wrong answers",
+    "Category selector",
+    "High score"
+  ]
+}

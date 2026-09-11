@@ -1,0 +1,21 @@
+{
+  "id": "template_043",
+  "name": "Quiz App",
+  "package": "app.bardom.quiz",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Take multiple-choice quizzes",
+  "features": [
+    "Start quiz",
+    "Show question with options",
+    "Select answer",
+    "Show correct answer",
+    "Next question",
+    "Final score",
+    "Review wrong answers",
+    "Timer per question",
+    "Category selection",
+    "High score tracking"
+  ]
+}

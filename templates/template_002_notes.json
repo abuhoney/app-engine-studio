@@ -1,0 +1,21 @@
+{
+  "id": "template_002",
+  "name": "Notes",
+  "package": "app.bardom.notes",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "A lightweight note-taking app",
+  "features": [
+    "Create a new note",
+    "Edit existing note",
+    "Delete a note with confirmation",
+    "List all notes by date",
+    "Search notes by keyword",
+    "Pin important notes to top",
+    "Export note as text file",
+    "Dark mode toggle",
+    "Auto-save on edit",
+    "Share note via system share"
+  ]
+}

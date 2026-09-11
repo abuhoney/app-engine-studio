@@ -1,0 +1,21 @@
+{
+  "id": "template_022",
+  "name": "Video Player",
+  "package": "app.bardom.video",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Play video files",
+  "features": [
+    "List videos on device",
+    "Play selected video",
+    "Show playback controls",
+    "Seek bar",
+    "Adjust volume",
+    "Change aspect ratio",
+    "Subtitle support",
+    "Picture-in-picture",
+    "Screenshot",
+    "Loop playback"
+  ]
+}

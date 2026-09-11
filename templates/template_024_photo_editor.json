@@ -1,0 +1,21 @@
+{
+  "id": "template_024",
+  "name": "Photo Editor",
+  "package": "app.bardom.photoedit",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Edit photos with filters and adjustments",
+  "features": [
+    "Load photo from gallery",
+    "Crop photo",
+    "Rotate photo",
+    "Adjust brightness",
+    "Adjust contrast",
+    "Apply filter",
+    "Add text overlay",
+    "Save edited photo",
+    "Undo changes",
+    "Share edited photo"
+  ]
+}

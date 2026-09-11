@@ -1,0 +1,21 @@
+{
+  "id": "template_073",
+  "name": "Translator",
+  "package": "app.bardom.translate",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Translate text between languages",
+  "features": [
+    "Select source language",
+    "Select target language",
+    "Input text",
+    "Show translation",
+    "Voice input",
+    "Voice output",
+    "Copy translation",
+    "History",
+    "Favorite translations",
+    "Offline dictionary"
+  ]
+}

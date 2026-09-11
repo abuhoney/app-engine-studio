@@ -1,0 +1,21 @@
+{
+  "id": "template_011",
+  "name": "Chat App",
+  "package": "app.bardom.chat",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "A simple chat application",
+  "features": [
+    "Display message list",
+    "Send text message",
+    "Receive message via polling",
+    "Show timestamp per message",
+    "Online/offline status",
+    "Typing indicator",
+    "Send image attachment",
+    "Delete message",
+    "Search messages",
+    "Group chat support"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "template_055",
+  "name": "Sudoku",
+  "package": "app.bardom.sudoku",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "9x9 Sudoku puzzle",
+  "features": [
+    "Generate puzzle",
+    "Input number per cell",
+    "Validate solution",
+    "Hint button",
+    "Difficulty levels",
+    "Timer",
+    "Pencil marks",
+    "Check progress",
+    "Reset puzzle",
+    "New puzzle"
+  ]
+}

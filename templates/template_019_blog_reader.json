@@ -1,0 +1,21 @@
+{
+  "id": "template_019",
+  "name": "Blog Reader",
+  "package": "app.bardom.blog",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Read blog posts from a feed",
+  "features": [
+    "List latest posts",
+    "Open post detail",
+    "Read full content",
+    "Share post",
+    "Bookmark post",
+    "Dark mode",
+    "Search posts",
+    "Filter by tag",
+    "Author profile",
+    "Comment section"
+  ]
+}

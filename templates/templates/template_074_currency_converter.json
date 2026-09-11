@@ -1,0 +1,21 @@
+{
+  "id": "template_074",
+  "name": "Currency Converter",
+  "package": "app.bardom.currency",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Convert between currencies",
+  "features": [
+    "Select source currency",
+    "Select target currency",
+    "Enter amount",
+    "Show converted amount",
+    "Live exchange rates",
+    "Historical chart",
+    "Favorite pairs",
+    "Multi-currency view",
+    "Offline last-known rates",
+    "Calculator mode"
+  ]
+}

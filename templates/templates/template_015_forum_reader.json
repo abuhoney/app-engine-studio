@@ -1,0 +1,21 @@
+{
+  "id": "template_015",
+  "name": "Forum Reader",
+  "package": "app.bardom.forum",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Read a public forum feed",
+  "features": [
+    "List of latest topics",
+    "Open topic detail",
+    "Read comments",
+    "Post a new comment",
+    "Upvote a topic",
+    "Bookmark a topic",
+    "Dark mode",
+    "Search topics",
+    "Filter by category",
+    "Share topic link"
+  ]
+}

@@ -1,0 +1,34 @@
+/* main.css - أنماط إضافية تُحمّل من ملف خارجي */
+
+/* أنماط الدردشة */
+.chat-msg { padding: 10px 14px; border-radius: 10px; max-width: 85%; font-size: 13.5px; line-height: 1.7; word-break: break-word; }
+.chat-msg.user { background: var(--accent); color: #fff; align-self: flex-start; border-bottom-right-radius: 4px; }
+.chat-msg.assistant { background: var(--surface2); color: var(--text); align-self: flex-end; border-bottom-left-radius: 4px; }
+.chat-msg.system { background: rgba(88,166,255,0.1); color: var(--accent); align-self: center; text-align: center; font-size: 12px; }
+
+/* خطوات البناء */
+.build-step { font-size: 13px; }
+.build-step.running { background: rgba(88,166,255,0.1); }
+.build-step.done { background: rgba(63,185,80,0.1); }
+.build-step.error { background: rgba(248,81,73,0.1); }
+
+/* أزرار التصنيف */
+.btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* تحسينات التمرير */
+.content-area { scroll-padding-top: 10px; -webkit-overflow-scrolling: touch; }
+
+/* تأثيرات حركية مخفضة */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* قوالب - تأثيرات إضافية */
+.template-card:active { transform: scale(0.97); }
+
+/* تحسينات الكروت */
+.card { will-change: border-color; }
+
+/* شريط التمرير للدردشة */
+#chatMessages::-webkit-scrollbar { width: 4px; }
+#chatMessages::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }

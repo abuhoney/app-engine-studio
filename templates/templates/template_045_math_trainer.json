@@ -1,0 +1,21 @@
+{
+  "id": "template_045",
+  "name": "Math Trainer",
+  "package": "app.bardom.mathtrain",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Practice mental math",
+  "features": [
+    "Generate random problem",
+    "Enter answer",
+    "Check answer",
+    "Show correct solution",
+    "Difficulty levels",
+    "Timer",
+    "Score tracking",
+    "Streak counter",
+    "Operation selector + - × ÷",
+    "Statistics"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "template_099",
+  "name": "Donation Tracker",
+  "package": "app.bardom.donate",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Track charitable donations",
+  "features": [
+    "Add donation entry",
+    "Categorize by charity",
+    "Receipt photo",
+    "Tax-deductible flag",
+    "Annual summary",
+    "Statistics by category",
+    "Reminder for recurring",
+    "Export for taxes",
+    "Multiple payment methods",
+    "Share impact"
+  ]
+}

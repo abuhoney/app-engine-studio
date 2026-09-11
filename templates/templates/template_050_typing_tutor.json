@@ -1,0 +1,21 @@
+{
+  "id": "template_050",
+  "name": "Typing Tutor",
+  "package": "app.bardom.typing",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Improve typing speed",
+  "features": [
+    "Show text to type",
+    "Track WPM",
+    "Track accuracy",
+    "Show errors",
+    "Difficulty levels",
+    "Practice lessons",
+    "Custom text",
+    "Progress chart",
+    "Timed test",
+    "High score"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "template_052",
+  "name": "Memory Match",
+  "package": "app.bardom.memory",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Card matching memory game",
+  "features": [
+    "4x4 grid of cards",
+    "Flip card on tap",
+    "Match pairs",
+    "Hide unmatched cards",
+    "Move counter",
+    "Timer",
+    "Win detection",
+    "Difficulty levels",
+    "Sound effects",
+    "High score"
+  ]
+}

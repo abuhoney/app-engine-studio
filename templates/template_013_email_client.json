@@ -1,0 +1,21 @@
+{
+  "id": "template_013",
+  "name": "Email Client",
+  "package": "app.bardom.email",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "A minimal email reader",
+  "features": [
+    "Inbox view",
+    "Open and read email",
+    "Compose new email",
+    "Reply to email",
+    "Forward email",
+    "Delete email",
+    "Mark as spam",
+    "Move to folder",
+    "Attach file",
+    "Search emails"
+  ]
+}

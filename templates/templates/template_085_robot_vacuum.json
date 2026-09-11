@@ -1,0 +1,21 @@
+{
+  "id": "template_085",
+  "name": "Robot Vacuum",
+  "package": "app.bardom.vacuum",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Control robot vacuum",
+  "features": [
+    "Start cleaning",
+    "Stop and dock",
+    "Schedule cleaning",
+    "Map view",
+    "Zone cleaning",
+    "Battery status",
+    "Cleaning history",
+    "Filter replacement alert",
+    "Spot cleaning",
+    "Quiet mode"
+  ]
+}

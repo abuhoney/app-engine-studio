@@ -1,0 +1,21 @@
+{
+  "id": "template_033",
+  "name": "PDF Reader",
+  "package": "app.bardom.pdf",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Open and read PDF files",
+  "features": [
+    "Open PDF from storage",
+    "Page navigation",
+    "Zoom in/out",
+    "Search text in PDF",
+    "Bookmark page",
+    "Jump to page",
+    "Night mode",
+    "Thumbnail view",
+    "Highlight text",
+    "Share PDF"
+  ]
+}

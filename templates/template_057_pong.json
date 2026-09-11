@@ -1,0 +1,21 @@
+{
+  "id": "template_057",
+  "name": "Pong",
+  "package": "app.bardom.pong",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Two-paddle Pong game",
+  "features": [
+    "Two paddles",
+    "Ball physics",
+    "Score tracking",
+    "Win at 11 points",
+    "Touch controls",
+    "AI opponent",
+    "Sound effects",
+    "Pause/resume",
+    "Speed increase",
+    "Reset game"
+  ]
+}

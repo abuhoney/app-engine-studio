@@ -1,0 +1,21 @@
+{
+  "id": "template_044",
+  "name": "Language Learner",
+  "package": "app.bardom.lang",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Learn a new language",
+  "features": [
+    "Daily lesson",
+    "Vocabulary list",
+    "Practice with flashcards",
+    "Listen to pronunciation",
+    "Speak and check",
+    "Grammar tips",
+    "Progress tracking",
+    "Streak counter",
+    "Review weak words",
+    "Leaderboard"
+  ]
+}

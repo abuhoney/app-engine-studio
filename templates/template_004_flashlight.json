@@ -1,0 +1,21 @@
+{
+  "id": "template_004",
+  "name": "Flashlight",
+  "package": "app.bardom.flashlight",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Turn the camera flash on/off as a flashlight",
+  "features": [
+    "Toggle flashlight on/off",
+    "Auto-off after 5 minutes",
+    "SOS morse code mode",
+    "Strobe light mode with adjustable speed",
+    "Widget for home screen",
+    "Battery level indicator",
+    "Keep screen on while active",
+    "Vibrate on toggle",
+    "Launch from lock screen",
+    "Save last brightness"
+  ]
+}

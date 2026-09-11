@@ -1,0 +1,21 @@
+{
+  "id": "template_061",
+  "name": "Step Counter",
+  "package": "app.bardom.steps",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Count daily steps using accelerometer",
+  "features": [
+    "Count steps via sensor",
+    "Daily goal progress",
+    "Weekly chart",
+    "Calories estimate",
+    "Distance estimate",
+    "Start/pause tracking",
+    "Reset counter",
+    "Notification with progress",
+    "History by day",
+    "Export as CSV"
+  ]
+}

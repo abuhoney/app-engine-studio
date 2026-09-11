@@ -1,0 +1,21 @@
+{
+  "id": "template_035",
+  "name": "Cloud Drive",
+  "package": "app.bardom.cloud",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Browse cloud-stored files",
+  "features": [
+    "Login with token",
+    "List remote files",
+    "Download file",
+    "Upload file",
+    "Create folder",
+    "Delete remote file",
+    "Share link",
+    "Search files",
+    "Sync status",
+    "Offline cache"
+  ]
+}

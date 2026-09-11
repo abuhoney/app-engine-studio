@@ -1,0 +1,21 @@
+{
+  "id": "template_025",
+  "name": "Audio Recorder",
+  "package": "app.bardom.recorder",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Record audio from microphone",
+  "features": [
+    "Start recording",
+    "Pause recording",
+    "Stop and save",
+    "List recordings",
+    "Play recording",
+    "Rename recording",
+    "Delete recording",
+    "Share recording",
+    "Recording format selector",
+    "Show waveform"
+  ]
+}

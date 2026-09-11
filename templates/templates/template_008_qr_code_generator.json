@@ -1,0 +1,21 @@
+{
+  "id": "template_008",
+  "name": "QR Code Generator",
+  "package": "app.bardom.qrgen",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Generate QR codes from text",
+  "features": [
+    "Input text or URL",
+    "Generate QR code image",
+    "Save QR to gallery",
+    "Share QR image",
+    "Adjust QR size",
+    "Adjust QR color",
+    "Generate from clipboard",
+    "Generate from contact",
+    "Generate from WiFi credentials",
+    "History of generated codes"
+  ]
+}

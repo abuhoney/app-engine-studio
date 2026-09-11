@@ -1,0 +1,21 @@
+{
+  "id": "template_077",
+  "name": "Altimeter",
+  "package": "app.bardom.altitude",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Show current altitude",
+  "features": [
+    "Show altitude via GPS",
+    "Show barometric altitude",
+    "Show sea level pressure",
+    "Record altitude profile",
+    "Show chart",
+    "Save waypoints",
+    "Calibrate to known altitude",
+    "Share reading",
+    "History log",
+    "Export data"
+  ]
+}

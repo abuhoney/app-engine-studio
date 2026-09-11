@@ -1,0 +1,21 @@
+{
+  "id": "template_058",
+  "name": "Brick Breaker",
+  "package": "app.bardom.breakout",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Breakout-style brick game",
+  "features": [
+    "Paddle control",
+    "Ball physics",
+    "Brick layout",
+    "Brick destruction",
+    "Lives counter",
+    "Score tracking",
+    "Level progression",
+    "Sound effects",
+    "Pause/resume",
+    "Game over"
+  ]
+}

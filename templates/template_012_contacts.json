@@ -1,0 +1,21 @@
+{
+  "id": "template_012",
+  "name": "Contacts",
+  "package": "app.bardom.contacts",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Manage contacts locally",
+  "features": [
+    "Add new contact",
+    "Edit contact",
+    "Delete contact",
+    "List all contacts alphabetically",
+    "Search by name",
+    "Search by phone number",
+    "Add contact photo",
+    "Import from phonebook",
+    "Export as vCard",
+    "Mark as favorite"
+  ]
+}

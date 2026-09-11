@@ -1,0 +1,21 @@
+{
+  "id": "template_076",
+  "name": "Speedometer",
+  "package": "app.bardom.speed",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Show current speed using GPS",
+  "features": [
+    "Show current speed",
+    "Show max speed",
+    "Show average speed",
+    "Speed unit km/h or mph",
+    "Speed alert",
+    "Trip distance",
+    "Trip timer",
+    "HUD mode",
+    "Background tracking",
+    "Export trip data"
+  ]
+}

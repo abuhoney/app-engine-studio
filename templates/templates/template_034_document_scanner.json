@@ -1,0 +1,21 @@
+{
+  "id": "template_034",
+  "name": "Document Scanner",
+  "package": "app.bardom.docscan",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Scan documents with the camera",
+  "features": [
+    "Capture document photo",
+    "Auto-detect edges",
+    "Crop and perspective correct",
+    "Convert to grayscale",
+    "Enhance contrast",
+    "Save as PDF",
+    "Multi-page documents",
+    "OCR text extraction",
+    "Share scanned PDF",
+    "Organize by folder"
+  ]
+}

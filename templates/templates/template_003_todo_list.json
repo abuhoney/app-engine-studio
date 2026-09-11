@@ -1,0 +1,21 @@
+{
+  "id": "template_003",
+  "name": "Todo List",
+  "package": "app.bardom.todo",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "A todo list with reminders",
+  "features": [
+    "Add a todo item",
+    "Mark item as completed",
+    "Delete a todo item",
+    "Edit an existing item",
+    "Set due date",
+    "Set priority high/medium/low",
+    "Filter by status",
+    "Sort by date or priority",
+    "Notification before due date",
+    "Statistics: total/done/pending"
+  ]
+}

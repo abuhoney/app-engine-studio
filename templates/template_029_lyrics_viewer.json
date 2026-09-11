@@ -1,0 +1,21 @@
+{
+  "id": "template_029",
+  "name": "Lyrics Viewer",
+  "package": "app.bardom.lyrics",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Show lyrics for currently playing song",
+  "features": [
+    "Search by song name",
+    "Search by artist",
+    "Show synced lyrics",
+    "Save lyrics offline",
+    "Edit lyrics",
+    "Share lyrics",
+    "Dark mode",
+    "Font size adjust",
+    "Highlight current line",
+    "Translate lyrics"
+  ]
+}

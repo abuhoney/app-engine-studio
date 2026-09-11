@@ -1,0 +1,21 @@
+{
+  "id": "template_031",
+  "name": "Calendar",
+  "package": "app.bardom.calendar",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "A monthly calendar with events",
+  "features": [
+    "Show month view",
+    "Add event on date",
+    "Edit event",
+    "Delete event",
+    "Event reminder notification",
+    "List upcoming events",
+    "Weekly view",
+    "Daily view",
+    "Search events",
+    "Export to ICS"
+  ]
+}

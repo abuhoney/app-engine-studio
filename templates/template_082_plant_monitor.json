@@ -1,0 +1,21 @@
+{
+  "id": "template_082",
+  "name": "Plant Monitor",
+  "package": "app.bardom.plants",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Track plant care schedule",
+  "features": [
+    "Add plant",
+    "Set watering schedule",
+    "Set fertilizing schedule",
+    "Photo log",
+    "Notes per plant",
+    "Reminder notifications",
+    "Plant database",
+    "Care tips",
+    "Statistics",
+    "Export data"
+  ]
+}

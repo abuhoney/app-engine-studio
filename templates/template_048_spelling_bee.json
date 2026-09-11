@@ -1,0 +1,21 @@
+{
+  "id": "template_048",
+  "name": "Spelling Bee",
+  "package": "app.bardom.spell",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Practice spelling words",
+  "features": [
+    "Listen to word",
+    "Type the word",
+    "Check spelling",
+    "Show correct spelling",
+    "Difficulty levels",
+    "Hint button",
+    "Word definition",
+    "Statistics",
+    "Practice mode",
+    "Test mode"
+  ]
+}

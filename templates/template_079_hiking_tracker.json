@@ -1,0 +1,21 @@
+{
+  "id": "template_079",
+  "name": "Hiking Tracker",
+  "package": "app.bardom.hiking",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Track hiking routes",
+  "features": [
+    "Start hike",
+    "Record GPS track",
+    "Show distance",
+    "Show elevation gain",
+    "Show duration",
+    "Pause/resume",
+    "Save hike",
+    "View past hikes",
+    "Export as GPX",
+    "Statistics"
+  ]
+}

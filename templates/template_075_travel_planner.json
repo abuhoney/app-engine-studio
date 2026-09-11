@@ -1,0 +1,21 @@
+{
+  "id": "template_075",
+  "name": "Travel Planner",
+  "package": "app.bardom.travel",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Plan trips and itineraries",
+  "features": [
+    "Create new trip",
+    "Add destination",
+    "Add activity",
+    "Set dates",
+    "Budget tracker",
+    "Packing list",
+    "Map view of itinerary",
+    "Share trip",
+    "Backup to cloud",
+    "Export as PDF"
+  ]
+}

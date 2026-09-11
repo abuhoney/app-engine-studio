@@ -1,0 +1,21 @@
+{
+  "id": "template_069",
+  "name": "Cycle Tracker",
+  "package": "app.bardom.cycle",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Track menstrual cycle",
+  "features": [
+    "Log cycle start",
+    "Predict next cycle",
+    "Symptom tracking",
+    "Mood tracking",
+    "Fertility window",
+    "Reminder notification",
+    "Cycle history",
+    "Statistics",
+    "Notes per day",
+    "Export data"
+  ]
+}

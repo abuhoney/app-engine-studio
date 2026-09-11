@@ -1,0 +1,21 @@
+{
+  "id": "template_006",
+  "name": "Stopwatch",
+  "package": "app.bardom.stopwatch",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "A precise stopwatch with lap times",
+  "features": [
+    "Start/pause stopwatch",
+    "Reset to zero",
+    "Record lap times",
+    "Display lap difference",
+    "Save session history",
+    "Export times as CSV",
+    "Continue in background",
+    "Voice announcement every minute",
+    "Large digits display",
+    "Haptic feedback on lap"
+  ]
+}

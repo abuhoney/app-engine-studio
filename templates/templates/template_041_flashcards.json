@@ -1,0 +1,21 @@
+{
+  "id": "template_041",
+  "name": "Flashcards",
+  "package": "app.bardom.flashcards",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Study with flashcards",
+  "features": [
+    "Create deck of cards",
+    "Add card to deck",
+    "Edit card",
+    "Delete card",
+    "Study mode",
+    "Shuffle deck",
+    "Mark card as known",
+    "Progress tracking",
+    "Import from CSV",
+    "Export deck"
+  ]
+}

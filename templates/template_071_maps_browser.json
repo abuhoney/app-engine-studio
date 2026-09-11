@@ -1,0 +1,21 @@
+{
+  "id": "template_071",
+  "name": "Maps Browser",
+  "package": "app.bardom.maps",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Open StreetMap-based map viewer",
+  "features": [
+    "Show world map",
+    "Search location",
+    "Drop pin",
+    "Get directions",
+    "Show current location",
+    "Save favorite places",
+    "Measure distance",
+    "Offline cache",
+    "Map style toggle",
+    "Share location"
+  ]
+}

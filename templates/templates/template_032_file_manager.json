@@ -1,0 +1,21 @@
+{
+  "id": "template_032",
+  "name": "File Manager",
+  "package": "app.bardom.files",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Browse and manage files on device",
+  "features": [
+    "List directory contents",
+    "Open file",
+    "Copy file",
+    "Move file",
+    "Delete file",
+    "Rename file",
+    "Create folder",
+    "Search files",
+    "Sort by name/size/date",
+    "Show storage info"
+  ]
+}

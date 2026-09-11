@@ -1,0 +1,21 @@
+{
+  "id": "template_036",
+  "name": "Markdown Editor",
+  "package": "app.bardom.markdown",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Edit Markdown files with live preview",
+  "features": [
+    "Edit markdown text",
+    "Live HTML preview",
+    "Save .md file",
+    "Open existing .md",
+    "Export as HTML",
+    "Syntax highlighting",
+    "Dark mode",
+    "Word count",
+    "Search and replace",
+    "Recent files list"
+  ]
+}

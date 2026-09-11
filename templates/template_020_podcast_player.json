@@ -1,0 +1,21 @@
+{
+  "id": "template_020",
+  "name": "Podcast Player",
+  "package": "app.bardom.podcast",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Subscribe to and play podcasts",
+  "features": [
+    "Browse podcast directory",
+    "Subscribe to podcast",
+    "List episodes",
+    "Play episode",
+    "Download for offline",
+    "Show playback speed",
+    "Skip 30 seconds",
+    "Sleep timer",
+    "Show notes",
+    "Mark as played"
+  ]
+}

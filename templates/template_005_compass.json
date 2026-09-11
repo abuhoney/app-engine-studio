@@ -1,0 +1,21 @@
+{
+  "id": "template_005",
+  "name": "Compass",
+  "package": "app.bardom.compass",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "A magnetic compass using device sensors",
+  "features": [
+    "Show north direction",
+    "Display heading in degrees",
+    "Switch between true north and magnetic north",
+    "Vibrate when facing north",
+    "Night mode with red text",
+    "Lock current heading",
+    "Show latitude/longitude from GPS",
+    "Calibration helper",
+    "Background color change by direction",
+    "Save favorite directions"
+  ]
+}

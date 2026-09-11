@@ -1,0 +1,21 @@
+{
+  "id": "template_092",
+  "name": "Stock Tracker",
+  "package": "app.bardom.stocks",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Track stock prices",
+  "features": [
+    "Search ticker",
+    "Add to watchlist",
+    "Show current price",
+    "Show daily change",
+    "Historical chart",
+    "Set price alert",
+    "Portfolio view",
+    "News feed",
+    "Multiple exchanges",
+    "Export data"
+  ]
+}

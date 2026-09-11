@@ -1,0 +1,21 @@
+{
+  "id": "template_014",
+  "name": "Walkie Talkie",
+  "package": "app.bardom.walkie",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Push-to-talk voice communication over WiFi",
+  "features": [
+    "Push to talk button",
+    "Record audio",
+    "Send audio over UDP",
+    "Receive audio and play",
+    "Connect to room by IP",
+    "Volume control",
+    "Show speaking indicator",
+    "Mute microphone",
+    "Voice activation mode",
+    "Save transmission log"
+  ]
+}

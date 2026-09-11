@@ -1,0 +1,21 @@
+{
+  "id": "template_063",
+  "name": "Heart Rate Monitor",
+  "package": "app.bardom.heartrate",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Measure heart rate using camera",
+  "features": [
+    "Place finger on camera",
+    "Detect pulse via color change",
+    "Calculate BPM",
+    "Show graph",
+    "Save measurement",
+    "History list",
+    "Resting/exercise zones",
+    "Average heart rate",
+    "Export data",
+    "Share result"
+  ]
+}

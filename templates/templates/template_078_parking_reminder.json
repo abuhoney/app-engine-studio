@@ -1,0 +1,21 @@
+{
+  "id": "template_078",
+  "name": "Parking Reminder",
+  "package": "app.bardom.parking",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Remember where you parked",
+  "features": [
+    "Save current location",
+    "Take parking photo",
+    "Set parking timer",
+    "Navigate back to car",
+    "Notes field",
+    "Share location",
+    "Parking history",
+    "Floor/level field",
+    "Notification when timer expires",
+    "Multiple vehicles"
+  ]
+}

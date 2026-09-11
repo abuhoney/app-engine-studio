@@ -1,0 +1,21 @@
+{
+  "id": "template_094",
+  "name": "Loan Calculator",
+  "package": "app.bardom.loan",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Calculate loan payments",
+  "features": [
+    "Enter loan amount",
+    "Enter interest rate",
+    "Enter term in months",
+    "Calculate monthly payment",
+    "Show total interest",
+    "Show amortization schedule",
+    "Compare loans",
+    "Extra payment option",
+    "Save calculation",
+    "Share result"
+  ]
+}

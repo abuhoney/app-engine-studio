@@ -1,0 +1,53 @@
+{
+  "app_name": "Bardom AI",
+  "version": "1.0.0",
+  "engine_version": "3.0.0",
+  "build_number": 1,
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "package": "com.bardom.ai",
+  "author": "BardomPro",
+  "description": "مولد التطبيقات الشامل - Bardom AI",
+  "rtl": true,
+  "language": "ar",
+  "theme": "dark",
+  "modules": [
+    "modules/templates-browser.js",
+    "modules/apk-builder.js",
+    "modules/ai-assistant.js",
+    "modules/telegram-bot.js",
+    "modules/github-push.js",
+    "modules/firebase-sync.js",
+    "modules/project-generator.js",
+    "modules/settings.js"
+  ],
+  "api": {
+    "openrouter_url": "https://openrouter.ai/api/v1/chat/completions",
+    "openrouter_model": "moonshotai/kimi-k2",
+    "openrouter_api_key": "",
+    "telegram_bot_token": "",
+    "telegram_admin_id": "",
+    "github_token": "",
+    "github_repo": "abuhoney/bardom",
+    "firebase_url": ""
+  },
+  "build": {
+    "default_package_prefix": "app.bardom.",
+    "default_min_sdk": 21,
+    "default_target_sdk": 34,
+    "default_version": "1.0.0",
+    "compression_level": 6
+  },
+  "categories": [
+    {"id": "utility", "name": "أدوات", "name_en": "Utility", "icon": "🔧", "count": 10, "range": [1, 10]},
+    {"id": "social", "name": "اجتماعي", "name_en": "Social", "icon": "💬", "count": 10, "range": [11, 20]},
+    {"id": "media", "name": "وسائط", "name_en": "Media", "icon": "🎵", "count": 10, "range": [21, 30]},
+    {"id": "productivity", "name": "إنتاجية", "name_en": "Productivity", "icon": "📋", "count": 10, "range": [31, 40]},
+    {"id": "education", "name": "تعليم", "name_en": "Education", "icon": "📚", "count": 10, "range": [41, 50]},
+    {"id": "games", "name": "ألعاب", "name_en": "Games", "icon": "🎮", "count": 10, "range": [51, 60]},
+    {"id": "health", "name": "صحة", "name_en": "Health", "icon": "❤️", "count": 10, "range": [61, 70]},
+    {"id": "travel", "name": "سفر", "name_en": "Travel", "icon": "✈️", "count": 10, "range": [71, 80]},
+    {"id": "smart_home", "name": "منزل ذكي", "name_en": "Smart Home", "icon": "🏠", "count": 10, "range": [81, 90]},
+    {"id": "finance", "name": "مالية", "name_en": "Finance", "icon": "💰", "count": 10, "range": [91, 100]}
+  ]
+}

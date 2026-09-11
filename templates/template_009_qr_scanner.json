@@ -1,0 +1,21 @@
+{
+  "id": "template_009",
+  "name": "QR Scanner",
+  "package": "app.bardom.qrscan",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Scan QR codes and barcodes using the camera",
+  "features": [
+    "Open camera preview",
+    "Detect QR code in real-time",
+    "Decode barcode value",
+    "Open URL in browser",
+    "Copy to clipboard",
+    "Scan history",
+    "Flashlight toggle for scanning",
+    "Vibrate on detection",
+    "Save scanned image",
+    "Share decoded text"
+  ]
+}

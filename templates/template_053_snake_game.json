@@ -1,0 +1,21 @@
+{
+  "id": "template_053",
+  "name": "Snake Game",
+  "package": "app.bardom.snake",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Classic snake game",
+  "features": [
+    "Snake movement",
+    "Food generation",
+    "Grow on eat",
+    "Game over on collision",
+    "Score display",
+    "High score",
+    "Swipe controls",
+    "Pause/resume",
+    "Speed increase",
+    "Sound effects"
+  ]
+}

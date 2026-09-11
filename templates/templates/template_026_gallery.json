@@ -1,0 +1,21 @@
+{
+  "id": "template_026",
+  "name": "Gallery",
+  "package": "app.bardom.gallery",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Browse photos and videos",
+  "features": [
+    "Grid of thumbnails",
+    "Open full screen",
+    "Swipe between items",
+    "Pinch to zoom",
+    "Share item",
+    "Delete item",
+    "Show details",
+    "Filter by type",
+    "Slideshow mode",
+    "Multi-select"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "template_042",
+  "name": "Dictionary",
+  "package": "app.bardom.dict",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Look up word definitions",
+  "features": [
+    "Search word",
+    "Show definition",
+    "Show pronunciation",
+    "Show example sentences",
+    "Add to favorites",
+    "Search history",
+    "Word of the day",
+    "Offline mode",
+    "Synonyms and antonyms",
+    "Share definition"
+  ]
+}

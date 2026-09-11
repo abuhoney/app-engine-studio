@@ -1,0 +1,21 @@
+{
+  "id": "template_054",
+  "name": "2048",
+  "package": "app.bardom.game2048",
+  "version": "1.0.0",
+  "min_sdk": 21,
+  "target_sdk": 34,
+  "description": "Slide and merge number tiles",
+  "features": [
+    "4x4 grid of tiles",
+    "Swipe to move",
+    "Merge equal tiles",
+    "Spawn new tile",
+    "Score counter",
+    "Best score",
+    "Game over detection",
+    "Win at 2048",
+    "Continue after win",
+    "Undo move"
+  ]
+}
